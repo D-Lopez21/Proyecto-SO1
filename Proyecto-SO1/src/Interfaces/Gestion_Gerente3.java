@@ -5,18 +5,72 @@
  */
 package Interfaces;
 
+import java.util.concurrent.Semaphore;
+
 /**
  *
- * @author DIEGO_LOPEZ
+ * @author Nicolas B
  */
 public class Gestion_Gerente3 extends javax.swing.JFrame {
+    
+    private int dayDuration;
+    private int daysToDeliver;
+    private int reducedSalary;
+    public static int money;
+    private boolean stop;
+    private Semaphore mutex;
 
     /**
-     * Creates new form Gestion_Gerente2
+     * Creates new form Gestion_Gerente3
      */
-    public Gestion_Gerente3() {
+    public Gestion_Gerente3(int dayDuration, int daysToDeliver, Semaphore mutex) {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.daysToDeliver = daysToDeliver;
+        this.dayDuration = dayDuration;
+        this.reducedSalary = 0;
+        this.money = 0;
+        this.stop = false;
+        this.mutex = mutex;
+    }
+    
+    public void run(){
+        while(!this.stop){
+            
+            try{
+                mutex.acquire();
+                if (Integer.parseInt(Empresa3.Dia_entrega.getText()) == 0){
+                    this.Estado.setText("Trabajando");
+                    Empresa3.Dia_entrega.setText(Integer.toString(daysToDeliver));
+                }else{
+                    this.Estado.setText("Vigilando");
+                    double checkPlay = 0;
+                    double vigilantTime = (dayDuration*(Math.floor(Math.random()*(18-12+1)+18))*1000)/24;
+                    while (vigilantTime >= 0) {
+                        checkPlay = (dayDuration*((long) Math.floor(Math.random()*(90-30+1)+30))*1000)/1440;
+                        Thread.sleep((long) checkPlay);
+                        if (Gestion_Jefe3.state.equals("Jugando Clash Royale")) {
+                            Gestion_Jefe3.money -= 2;
+                            this.reducedSalary += 2;
+                            Gestion_Jefe3.lostMoney.setText(Integer.toString(this.reducedSalary));
+                        }
+                        vigilantTime -= checkPlay;
+                    }
+                
+            }
+                mutex.release();
+            }catch(Exception e){
+                
+            }
+        }
+    }
+
+    public boolean isStop() {
+        return stop;
+    }
+
+    public void setStop(boolean stop) {
+        this.stop = stop;
     }
 
     /**
@@ -34,7 +88,7 @@ public class Gestion_Gerente3 extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        wonSalary = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
@@ -63,12 +117,12 @@ public class Gestion_Gerente3 extends javax.swing.JFrame {
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel7.setText("Gasto generado:");
+        jLabel7.setText("Salario ganado:");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, -1, 20));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel8.setText("0");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, -1, 20));
+        wonSalary.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        wonSalary.setText("0");
+        getContentPane().add(wonSalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, -1, 20));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("Regresar");
@@ -125,7 +179,7 @@ public class Gestion_Gerente3 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Gestion_Gerente3().setVisible(true);
+                new Gestion_Gerente3(0,0,null).setVisible(true);
             }
         });
     }
@@ -139,6 +193,6 @@ public class Gestion_Gerente3 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    public static volatile javax.swing.JLabel wonSalary;
     // End of variables declaration//GEN-END:variables
 }
