@@ -5,18 +5,65 @@
  */
 package Interfaces;
 
+import java.util.concurrent.Semaphore;
+
 /**
  *
- * @author DIEGO_LOPEZ
+ * @author Nicolas B
  */
 public class Gestion_Jefe2 extends javax.swing.JFrame {
-
+    private int daysToDeliver;
+    private int dayDuration;
+    private float money;
+    private boolean stop;
+    private Semaphore mutex;
     /**
      * Creates new form Gestion_Jefe2
      */
-    public Gestion_Jefe2() {
+    public Gestion_Jefe2(int daysToDeliver, int dayDuration, Semaphore mutex) {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.daysToDeliver = daysToDeliver;
+        this.dayDuration = dayDuration;
+        this.money = 0;
+        this.mutex = mutex;
+    }
+    
+    public void run(){
+        while(!this.stop){
+            try{
+                double chillTime = (dayDuration*1000) - (dayDuration*1000)/24;
+                int salaryTime = 0;
+                while (chillTime > 0) {
+                    this.Estado.setText("Jugando Clash Royale");
+                    Thread.sleep((dayDuration*15000)/1440);
+                    this.Estado.setText("Revisando papeles");
+                    Thread.sleep((dayDuration*15000)/1440);
+                    chillTime -= (dayDuration*30000)/1440;
+                    salaryTime++;
+                    if ((salaryTime % 2) == 0) {
+                        money += 7;
+                        this.wonSalary.setText(Float.toString(money));
+                    }
+                }
+                this.mutex.acquire();
+                this.Estado.setText("Trabajando");
+                Thread.sleep((dayDuration*1000)/24);
+                this.daysToDeliver--;
+                Empresa2.Dia_entrega.setText(Integer.toString(this.daysToDeliver));
+                this.mutex.release();
+            }catch(Exception e){
+                
+            }
+        }
+    }
+
+    public boolean isStop() {
+        return stop;
+    }
+
+    public void setStop(boolean stop) {
+        this.stop = stop;
     }
 
     /**
@@ -36,7 +83,7 @@ public class Gestion_Jefe2 extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        wonSalary = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
 
@@ -81,13 +128,13 @@ public class Gestion_Jefe2 extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Gasto generado:");
+        jLabel7.setText("Salario ganado:");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, 20));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("0");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, -1, 20));
+        wonSalary.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        wonSalary.setForeground(new java.awt.Color(255, 255, 255));
+        wonSalary.setText("0");
+        getContentPane().add(wonSalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, -1, 20));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("Regresar");
@@ -142,7 +189,7 @@ public class Gestion_Jefe2 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Gestion_Jefe2().setVisible(true);
+                new Gestion_Jefe2(0,0,null).setVisible(true);
             }
         });
     }
@@ -157,7 +204,7 @@ public class Gestion_Jefe2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel wonSalary;
     // End of variables declaration//GEN-END:variables
 }

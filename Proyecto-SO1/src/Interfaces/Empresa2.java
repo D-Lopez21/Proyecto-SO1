@@ -263,7 +263,7 @@ public class Empresa2 extends javax.swing.JFrame {
     }//GEN-LAST:event_EnsambladoresActionPerformed
 
     private void JefeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JefeActionPerformed
-    Gestion_Jefe2 puente = new Gestion_Jefe2();
+    Gestion_Jefe2 puente = new Gestion_Jefe2(0,0,null);
     
     puente.setVisible(true);
     this.dispose();
@@ -313,7 +313,7 @@ public class Empresa2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Dia_entrega;
+    public static volatile javax.swing.JLabel Dia_entrega;
     private javax.swing.JLabel Dias;
     private javax.swing.JButton Ensambladores;
     private javax.swing.JButton Gerente;
