@@ -5,18 +5,70 @@
  */
 package Interfaces;
 
+import java.util.concurrent.Semaphore;
+
 /**
  *
- * @author DIEGO_LOPEZ
+ * @author Nicolas B
  */
 public class Gestion_Jefe3 extends javax.swing.JFrame {
-
+    private int daysToDeliver;
+    private int dayDuration;
+    public String state;
+    private float money;
+    private boolean stop;
+    private Semaphore mutex;
     /**
-     * Creates new form Gestion_Jefe2
+     * Creates new form Gestion_Jefe3
      */
-    public Gestion_Jefe3() {
+    public Gestion_Jefe3(int daysToDeliver, int dayDuration, Semaphore mutex) {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.daysToDeliver = daysToDeliver;
+        this.dayDuration = dayDuration;
+        this.state = "";
+        this.money = 0;
+        this.mutex = mutex;
+    }
+    
+    public void run(){
+        while(!this.stop){
+            try{
+                double chillTime = (dayDuration*1000) - (dayDuration*1000)/24;
+                int salaryTime = 0;
+                while (chillTime > 0) {
+                    state = "Jugando Clash Royale";
+                    this.Estado.setText(state);
+                    Thread.sleep((dayDuration*15000)/1440);
+                    state = "Revisando papeles";
+                    this.Estado.setText(state);
+                    Thread.sleep((dayDuration*15000)/1440);
+                    chillTime -= (dayDuration*30000)/1440;
+                    salaryTime++;
+                    if ((salaryTime % 2) == 0) {
+                        money += 7;
+                        this.wonSalary.setText(Float.toString(money));
+                    }
+                }
+                this.mutex.acquire();
+                state = "Trabajando";
+                this.Estado.setText(state);
+                Thread.sleep((dayDuration*1000)/24);
+                this.daysToDeliver--;
+                Empresa3.Dia_entrega.setText(Integer.toString(this.daysToDeliver));
+                this.mutex.release();
+            }catch(Exception e){
+                
+            }
+        }
+    }
+
+    public boolean isStop() {
+        return stop;
+    }
+
+    public void setStop(boolean stop) {
+        this.stop = stop;
     }
 
     /**
@@ -36,7 +88,7 @@ public class Gestion_Jefe3 extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        wonSalary = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
 
@@ -73,12 +125,12 @@ public class Gestion_Jefe3 extends javax.swing.JFrame {
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel7.setText("Gasto generado:");
+        jLabel7.setText("Salario ganado:");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, -1, 20));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel8.setText("0");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, -1, 20));
+        wonSalary.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        wonSalary.setText("0");
+        getContentPane().add(wonSalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, -1, 20));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("Regresar");
@@ -135,7 +187,7 @@ public class Gestion_Jefe3 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Gestion_Jefe3().setVisible(true);
+                new Gestion_Jefe3(0,0,null).setVisible(true);
             }
         });
     }
@@ -150,7 +202,7 @@ public class Gestion_Jefe3 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    public static volatile javax.swing.JLabel wonSalary;
     // End of variables declaration//GEN-END:variables
 }

@@ -14,6 +14,7 @@ import java.util.concurrent.Semaphore;
 public class Gestion_Jefe2 extends javax.swing.JFrame {
     private int daysToDeliver;
     private int dayDuration;
+    public String state;
     private float money;
     private boolean stop;
     private Semaphore mutex;
@@ -25,6 +26,7 @@ public class Gestion_Jefe2 extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.daysToDeliver = daysToDeliver;
         this.dayDuration = dayDuration;
+        this.state = "";
         this.money = 0;
         this.mutex = mutex;
     }
@@ -35,9 +37,11 @@ public class Gestion_Jefe2 extends javax.swing.JFrame {
                 double chillTime = (dayDuration*1000) - (dayDuration*1000)/24;
                 int salaryTime = 0;
                 while (chillTime > 0) {
-                    this.Estado.setText("Jugando Clash Royale");
+                    state = "Jugando Clash Royale";
+                    this.Estado.setText(state);
                     Thread.sleep((dayDuration*15000)/1440);
-                    this.Estado.setText("Revisando papeles");
+                    state = "Revisando papeles";
+                    this.Estado.setText(state);
                     Thread.sleep((dayDuration*15000)/1440);
                     chillTime -= (dayDuration*30000)/1440;
                     salaryTime++;
@@ -47,7 +51,8 @@ public class Gestion_Jefe2 extends javax.swing.JFrame {
                     }
                 }
                 this.mutex.acquire();
-                this.Estado.setText("Trabajando");
+                state = "Trabajando";
+                this.Estado.setText(state);
                 Thread.sleep((dayDuration*1000)/24);
                 this.daysToDeliver--;
                 Empresa2.Dia_entrega.setText(Integer.toString(this.daysToDeliver));
