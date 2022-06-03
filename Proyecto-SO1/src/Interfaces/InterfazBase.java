@@ -84,7 +84,11 @@ public class InterfazBase extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Empresa2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Empresa2ActionPerformed
-        // TODO add your handling code here:
+    Empresa2 empresa2 = new Empresa2();
+    
+    empresa2.setVisible(true);
+    this.dispose();
+            
     }//GEN-LAST:event_Empresa2ActionPerformed
 
     private void Salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Salir1ActionPerformed

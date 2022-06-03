@@ -9,9 +9,9 @@ package Interfaces;
  *
  * @author DIEGO_LOPEZ
  */
-public class Ensambladores extends javax.swing.JFrame {
+public class Ensambladores2 extends javax.swing.JFrame {
 
-    public Ensambladores() {
+    public Ensambladores2() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -158,8 +158,8 @@ public class Ensambladores extends javax.swing.JFrame {
         Ensambladores1.setText("0");
         getContentPane().add(Ensambladores1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, -1, -1));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoNico.jpg"))); // NOI18N
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 350));
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoAndres_1.gif"))); // NOI18N
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 0, 450, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -169,9 +169,9 @@ public class Ensambladores extends javax.swing.JFrame {
     }//GEN-LAST:event_ContarEnsambladoresActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    Empresa1 empresa1 = new Empresa1();
+    Empresa2 empresa2 = new Empresa2();
     
-    empresa1.setVisible(true);
+    empresa2.setVisible(true);
     this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -192,21 +192,23 @@ public class Ensambladores extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ensambladores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ensambladores2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ensambladores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ensambladores2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ensambladores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ensambladores2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ensambladores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ensambladores2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Ensambladores().setVisible(true);
+                new Ensambladores2().setVisible(true);
             }
         });
     }

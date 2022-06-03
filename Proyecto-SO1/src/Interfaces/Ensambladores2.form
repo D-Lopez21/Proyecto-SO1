@@ -346,12 +346,12 @@
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Imagenes/FondoNico.jpg"/>
+          <Image iconType="3" name="/Imagenes/FondoAndres_1.gif"/>
         </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="0" width="420" height="350"/>
+          <AbsoluteConstraints x="-30" y="0" width="450" height="350"/>
         </Constraint>
       </Constraints>
     </Component>
