@@ -37,10 +37,10 @@ public class Gestion_Jefe3 extends javax.swing.JFrame {
                 while (chillTime > 0) {
                     state = "Jugando Clash Royale";
                     this.Estado.setText(state);
-                    Thread.sleep((dayDuration*15000)/1440);
+                    Thread.sleep((dayDuration*17000)/1440);
                     state = "Revisando papeles";
                     this.Estado.setText(state);
-                    Thread.sleep((dayDuration*15000)/1440);
+                    Thread.sleep((dayDuration*17000)/1440);
                     chillTime -= (dayDuration*30000)/1440;
                     salaryTime++;
                     if ((salaryTime % 2) == 0) {
@@ -51,7 +51,7 @@ public class Gestion_Jefe3 extends javax.swing.JFrame {
                 this.mutex.acquire();
                 state = "Trabajando";
                 this.Estado.setText(state);
-                Thread.sleep((dayDuration*1000)/24);
+                Thread.sleep((dayDuration*3000)/24);
                 Empresa3.daysToDeliver--;
                 Gestion_Gerente3.money += 180;
                 Gestion_Gerente3.wonSalary.setText(Integer.toString((int) money));
