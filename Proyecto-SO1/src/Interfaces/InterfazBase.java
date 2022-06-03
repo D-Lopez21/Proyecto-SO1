@@ -75,6 +75,11 @@ public class InterfazBase extends javax.swing.JFrame {
         getContentPane().add(Empresa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 150, 40));
 
         Empresa3.setText("Empresa 3");
+        Empresa3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Empresa3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(Empresa3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 190, 150, 40));
 
         fondobase.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/02d7b2072c41a1cd5b4237c49ce2754c.jpg"))); // NOI18N
@@ -103,6 +108,13 @@ public class InterfazBase extends javax.swing.JFrame {
     this.dispose();
             
     }//GEN-LAST:event_Empresa1ActionPerformed
+
+    private void Empresa3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Empresa3ActionPerformed
+    Empresa3 empresa3 = new Empresa3();
+    
+    empresa3.setVisible(true);
+    this.dispose();
+    }//GEN-LAST:event_Empresa3ActionPerformed
 
     /**
      * @param args the command line arguments
