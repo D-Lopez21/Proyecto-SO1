@@ -10,13 +10,17 @@ package Interfaces;
  * @author DIEGO_LOPEZ
  */
 public class Empresa1 extends javax.swing.JFrame {
+    
+    public static int daysToDeliver;
 
     /**
      * Creates new form Empresa1
      */
-    public Empresa1() {
+    public Empresa1(int daysToDeliver) {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.daysToDeliver = daysToDeliver;
+
     }
 
     /**
@@ -263,14 +267,14 @@ public class Empresa1 extends javax.swing.JFrame {
     }//GEN-LAST:event_EnsambladoresActionPerformed
 
     private void JefeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JefeActionPerformed
-    Gestion_Jefe puente = new Gestion_Jefe(0, 0, null);
+    Gestion_Jefe puente = new Gestion_Jefe(0,null);
     
     puente.setVisible(true);
     this.dispose();
     }//GEN-LAST:event_JefeActionPerformed
 
     private void GerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GerenteActionPerformed
-    Gestion_Gerente puente = new Gestion_Gerente();
+    Gestion_Gerente puente = new Gestion_Gerente(0,0,null);
     
     puente.setVisible(true);
     this.dispose();
@@ -306,7 +310,7 @@ public class Empresa1 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Empresa1().setVisible(true);
+                new Empresa1(0).setVisible(true);
             }
         });
     }

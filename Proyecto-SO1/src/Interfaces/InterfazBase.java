@@ -102,7 +102,7 @@ public class InterfazBase extends javax.swing.JFrame {
 
     private void Empresa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Empresa1ActionPerformed
     
-    Empresa1 empresa1 = new Empresa1();
+    Empresa1 empresa1 = new Empresa1(0);
     
     empresa1.setVisible(true);
     this.dispose();
