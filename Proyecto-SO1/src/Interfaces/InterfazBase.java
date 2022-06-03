@@ -9,12 +9,12 @@ package Interfaces;
  *
  * @author DIEGO_LOPEZ
  */
-public class IntefazBase extends javax.swing.JFrame {
+public class InterfazBase extends javax.swing.JFrame {
 
     /**
      * Creates new form IntefazBase
      */
-    public IntefazBase() {
+    public InterfazBase() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -53,12 +53,17 @@ public class IntefazBase extends javax.swing.JFrame {
                 Salir1ActionPerformed(evt);
             }
         });
-        getContentPane().add(Salir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 0, -1, -1));
+        getContentPane().add(Salir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, -1, -1));
 
         Estadisticas.setText("Estadisticas");
         getContentPane().add(Estadisticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 320, 150, -1));
 
         Empresa1.setText("Empresa 1");
+        Empresa1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Empresa1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(Empresa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 160, 40));
 
         Empresa2.setText("Empresa 2");
@@ -86,6 +91,15 @@ public class IntefazBase extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_Salir1ActionPerformed
 
+    private void Empresa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Empresa1ActionPerformed
+    
+    Empresa1 empresa1 = new Empresa1();
+    
+    empresa1.setVisible(true);
+    this.dispose();
+            
+    }//GEN-LAST:event_Empresa1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -103,20 +117,21 @@ public class IntefazBase extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(IntefazBase.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazBase.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(IntefazBase.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazBase.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(IntefazBase.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazBase.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(IntefazBase.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazBase.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new IntefazBase().setVisible(true);
+                new InterfazBase().setVisible(true);
             }
         });
     }
