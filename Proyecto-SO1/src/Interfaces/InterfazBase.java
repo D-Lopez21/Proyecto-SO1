@@ -89,7 +89,7 @@ public class InterfazBase extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Empresa2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Empresa2ActionPerformed
-    Empresa2 empresa2 = new Empresa2();
+    Empresa2 empresa2 = new Empresa2(0);
     
     empresa2.setVisible(true);
     this.dispose();

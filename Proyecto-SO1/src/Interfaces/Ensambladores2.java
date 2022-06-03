@@ -169,7 +169,7 @@ public class Ensambladores2 extends javax.swing.JFrame {
     }//GEN-LAST:event_ContarEnsambladoresActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    Empresa2 empresa2 = new Empresa2();
+    Empresa2 empresa2 = new Empresa2(0);
     
     empresa2.setVisible(true);
     this.dispose();
