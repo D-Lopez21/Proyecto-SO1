@@ -55,7 +55,7 @@ public class Gestion_Jefe2 extends javax.swing.JFrame {
                 Empresa2.daysToDeliver--;
                 Gestion_Gerente2.money += 180;
                 Gestion_Gerente2.wonSalary.setText(Integer.toString((int) money));
-                Empresa1.Dia_entrega.setText(Integer.toString(Empresa1.daysToDeliver));
+                Empresa2.Dia_entrega.setText(Integer.toString(Empresa2.daysToDeliver));
                 this.mutex.release();
             }catch(Exception e){
                 

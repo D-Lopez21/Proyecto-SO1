@@ -12,19 +12,17 @@ import java.util.concurrent.Semaphore;
  * @author Nicolas B
  */
 public class Gestion_Jefe3 extends javax.swing.JFrame {
-    private int daysToDeliver;
     private int dayDuration;
-    public String state;
-    private float money;
+    public static String state;
+    public static float money;
     private boolean stop;
     private Semaphore mutex;
     /**
      * Creates new form Gestion_Jefe3
      */
-    public Gestion_Jefe3(int daysToDeliver, int dayDuration, Semaphore mutex) {
+    public Gestion_Jefe3(int dayDuration, Semaphore mutex) {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.daysToDeliver = daysToDeliver;
         this.dayDuration = dayDuration;
         this.state = "";
         this.money = 0;
@@ -54,8 +52,10 @@ public class Gestion_Jefe3 extends javax.swing.JFrame {
                 state = "Trabajando";
                 this.Estado.setText(state);
                 Thread.sleep((dayDuration*1000)/24);
-                this.daysToDeliver--;
-                Empresa3.Dia_entrega.setText(Integer.toString(this.daysToDeliver));
+                Empresa3.daysToDeliver--;
+                Gestion_Gerente3.money += 180;
+                Gestion_Gerente3.wonSalary.setText(Integer.toString((int) money));
+                Empresa3.Dia_entrega.setText(Integer.toString(Empresa3.daysToDeliver));
                 this.mutex.release();
             }catch(Exception e){
                 
@@ -85,7 +85,7 @@ public class Gestion_Jefe3 extends javax.swing.JFrame {
         Estado = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lostMoney = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         wonSalary = new javax.swing.JLabel();
@@ -116,9 +116,9 @@ public class Gestion_Jefe3 extends javax.swing.JFrame {
         jLabel4.setText("Descontado:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setText("0");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, -1, -1));
+        lostMoney.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lostMoney.setText("0");
+        getContentPane().add(lostMoney, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("0");
@@ -187,7 +187,7 @@ public class Gestion_Jefe3 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Gestion_Jefe3(0,0,null).setVisible(true);
+                new Gestion_Jefe3(0,null).setVisible(true);
             }
         });
     }
@@ -199,10 +199,10 @@ public class Gestion_Jefe3 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
+    public static volatile javax.swing.JLabel lostMoney;
     public static volatile javax.swing.JLabel wonSalary;
     // End of variables declaration//GEN-END:variables
 }
