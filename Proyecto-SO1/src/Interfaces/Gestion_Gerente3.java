@@ -15,7 +15,7 @@ public class Gestion_Gerente3 extends javax.swing.JFrame {
     
     private int dayDuration;
     private int daysToDeliver;
-    private int reducedSalary;
+    public static int reducedSalary;
     public static int money;
     private boolean stop;
     private Semaphore mutex;
@@ -185,7 +185,7 @@ public class Gestion_Gerente3 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Estado;
+    public static volatile javax.swing.JLabel Estado;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

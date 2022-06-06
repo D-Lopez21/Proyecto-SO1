@@ -5,22 +5,21 @@
  */
 package Interfaces;
 
+import java.util.concurrent.Semaphore;
+
 /**
  *
- * @author DIEGO_LOPEZ
+ * @author DIEGO_LOPEZ and Nicolás Briceño
  */
 public class Empresa1 extends javax.swing.JFrame {
-    
-    public static int daysToDeliver;
 
     /**
      * Creates new form Empresa1
      */
-    public Empresa1(int daysToDeliver) {
+    public Empresa1() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.daysToDeliver = daysToDeliver;
-
+        
     }
 
     /**
@@ -274,7 +273,7 @@ public class Empresa1 extends javax.swing.JFrame {
     }//GEN-LAST:event_JefeActionPerformed
 
     private void GerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GerenteActionPerformed
-    Gestion_Gerente puente = new Gestion_Gerente(0,0,null);
+    Gestion_Gerente puente = new Gestion_Gerente();
     
     puente.setVisible(true);
     this.dispose();
@@ -310,7 +309,7 @@ public class Empresa1 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Empresa1(0).setVisible(true);
+                new Empresa1().setVisible(true);
             }
         });
     }

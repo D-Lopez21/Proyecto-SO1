@@ -52,10 +52,10 @@ public class Gestion_Jefe extends javax.swing.JFrame {
                 state = "Trabajando";
                 this.Estado.setText(state);
                 Thread.sleep((dayDuration*1000)/24);
-                Empresa1.daysToDeliver--;
-                Gestion_Gerente.money += 180;
-                Gestion_Gerente.wonSalary.setText(Integer.toString((int) money));
-                Empresa1.Dia_entrega.setText(Integer.toString(Empresa1.daysToDeliver));
+                //Empresa1.daysToDeliver--;
+                //Gestion_Gerente.money += 180;
+                //Gestion_Gerente.wonSalary.setText(Integer.toString((int) money));
+                //Empresa1.Dia_entrega.setText(Integer.toString(Empresa1.daysToDeliver));
                 this.mutex.release();
             }catch(Exception e){
                 
@@ -157,7 +157,7 @@ public class Gestion_Jefe extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    Empresa1 empresa1 = new Empresa1(0);
+    Empresa1 empresa1 = new Empresa1();
     
     empresa1.setVisible(true);
     this.dispose();
