@@ -266,7 +266,7 @@ public class Empresa1 extends javax.swing.JFrame {
     }//GEN-LAST:event_EnsambladoresActionPerformed
 
     private void JefeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JefeActionPerformed
-    Gestion_Jefe puente = new Gestion_Jefe(0,null);
+    Gestion_Jefe puente = new Gestion_Jefe();
     
     puente.setVisible(true);
     this.dispose();

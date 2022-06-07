@@ -11,32 +11,29 @@ import java.util.concurrent.Semaphore;
  *
  * @author Nicolás Briceño
  */
-public class Gerente extends Thread{
+public class Gerente extends Empresa{
     
-    private int dayDuration;
-    private int daysToDeliver;
     private int reducedSalary;
-    public static int money;
     private boolean stop;
-    private Semaphore mutex;
-    private int numBusiness;
-    
-    public Gerente(int dayDuration, Semaphore mutex, int daysToDeliver, int numBusiness){
-        this.daysToDeliver = daysToDeliver;
-        this.dayDuration = dayDuration;
-        this.reducedSalary = 0;
-        Gerente.money = 0;
+
+    public Gerente(int reducedSalary, boolean stop, int daysToDeliver, int dayDuration, int numBusiness) {
+        super(daysToDeliver, dayDuration, numBusiness);
+        this.reducedSalary = reducedSalary;
         this.stop = false;
-        this.mutex = mutex;
-        this.numBusiness = numBusiness;
     }
     
     @Override
     public void run(){
+        int dayDuration = getDayDuration();
+        int numBusiness = getNumBusiness();
+        Semaphore mutex = getMutexCounter();
         while(!this.stop){
-            
+            double checkPlay = (dayDuration*((long) Math.floor(Math.random()*(90-30+1)+30))*1000)/1440;
+            double vigilantTime = (dayDuration*(Math.floor(Math.random()*(18-12+1)+18))*1000)/24;
+            float money = getBossMoney();
+            int daysToDeliver = getDaysToDeliver();
             try{
-                switch (this.numBusiness) {
+                switch (numBusiness) {
                     case 1:
                         mutex.acquire();
                         if (Integer.parseInt(Empresa1.Dia_entrega.getText()) == 0){
@@ -44,13 +41,11 @@ public class Gerente extends Thread{
                             Empresa1.Dia_entrega.setText(Integer.toString(daysToDeliver));
                         }else{
                             Gestion_Gerente.Estado.setText("Vigilando");
-                            double checkPlay;
-                            double vigilantTime = (dayDuration*(Math.floor(Math.random()*(18-12+1)+18))*1000)/24;
                             while (vigilantTime >= 0) {
-                                checkPlay = (dayDuration*((long) Math.floor(Math.random()*(90-30+1)+30))*1000)/1440;
                                 Thread.sleep((long) checkPlay);
-                                if (Gestion_Jefe.state.equals("Jugando Clash Royale")) {
-                                    Gestion_Jefe.money -= 2;
+                                if (Gestion_Jefe.Estado.getText().equals("Jugando Clash Royale")) {
+                                    money -= 2;
+                                    setBossMoney(money);
                                     this.reducedSalary += 2;
                                     Gestion_Jefe.lostMoney.setText(Integer.toString(this.reducedSalary));
                                 }
@@ -65,13 +60,11 @@ public class Gerente extends Thread{
                             Empresa2.Dia_entrega.setText(Integer.toString(daysToDeliver));
                         }else{
                             Gestion_Gerente2.Estado.setText("Vigilando");
-                            double checkPlay;
-                            double vigilantTime = (dayDuration*(Math.floor(Math.random()*(18-12+1)+18))*1000)/24;
                             while (vigilantTime >= 0) {
-                                checkPlay = (dayDuration*((long) Math.floor(Math.random()*(90-30+1)+30))*1000)/1440;
                                 Thread.sleep((long) checkPlay);
-                                if (Gestion_Jefe2.state.equals("Jugando Clash Royale")) {
-                                    Gestion_Jefe2.money -= 2;
+                                if (Gestion_Jefe2.Estado.getText().equals("Jugando Clash Royale")) {
+                                    money -= 2;
+                                    setBossMoney(money);
                                     this.reducedSalary += 2;
                                     Gestion_Jefe2.lostMoney.setText(Integer.toString(this.reducedSalary));
                                 }
@@ -86,13 +79,11 @@ public class Gerente extends Thread{
                             Empresa3.Dia_entrega.setText(Integer.toString(daysToDeliver));
                         }else{
                             Gestion_Gerente3.Estado.setText("Vigilando");
-                            double checkPlay;
-                            double vigilantTime = (dayDuration*(Math.floor(Math.random()*(18-12+1)+18))*1000)/24;
                             while (vigilantTime >= 0) {
-                                checkPlay = (dayDuration*((long) Math.floor(Math.random()*(90-30+1)+30))*1000)/1440;
                                 Thread.sleep((long) checkPlay);
-                                if (Gestion_Jefe3.state.equals("Jugando Clash Royale")) {
-                                    Gestion_Jefe3.money -= 2;
+                                if (Gestion_Jefe3.Estado.getText().equals("Jugando Clash Royale")) {
+                                    money -= 2;
+                                    setBossMoney(money);
                                     this.reducedSalary += 2;
                                     Gestion_Jefe3.lostMoney.setText(Integer.toString(this.reducedSalary));
                                 }

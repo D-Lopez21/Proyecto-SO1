@@ -13,7 +13,6 @@ import java.util.concurrent.Semaphore;
  */
 public class Jefe extends Empresa{
     
-    private String state;
     private boolean stop;
 
     public Jefe(boolean stop, int daysToDeliver, int dayDuration, int numBusiness) {
@@ -34,11 +33,9 @@ public class Jefe extends Empresa{
                 switch (numBusiness) {
                     case 1:
                         while (chillTime > 0) {
-                            state = "Jugando Clash Royale";
-                            Gestion_Jefe.Estado.setText(state);
+                            Gestion_Jefe.Estado.setText("Jugando Clash Royale");
                             Thread.sleep((dayDuration*15000)/1440);
-                            state = "Revisando papeles";
-                            Gestion_Jefe.Estado.setText(state);
+                            Gestion_Jefe.Estado.setText("Revisando papeles");
                             Thread.sleep((dayDuration*15000)/1440);
                             chillTime -= (dayDuration*30000)/1440;
                             salaryTime++;
@@ -49,8 +46,7 @@ public class Jefe extends Empresa{
                             }
                         }
                         mutex.acquire();
-                        state = "Trabajando";
-                        Gestion_Jefe.Estado.setText(state);
+                        Gestion_Jefe.Estado.setText("Trabajando");
                         Thread.sleep((dayDuration*1000)/24);
                         daysToDeliver--;
                         setDaysToDeliver(daysToDeliver);
@@ -60,11 +56,9 @@ public class Jefe extends Empresa{
                         break;
                     case 2:
                         while (chillTime > 0) {
-                            state = "Jugando Clash Royale";
-                            Gestion_Jefe2.Estado.setText(state);
+                            Gestion_Jefe2.Estado.setText("Jugando Clash Royale");
                             Thread.sleep((dayDuration*15000)/1440);
-                            state = "Revisando papeles";
-                            Gestion_Jefe2.Estado.setText(state);
+                            Gestion_Jefe2.Estado.setText("Revisando papeles");
                             Thread.sleep((dayDuration*15000)/1440);
                             chillTime -= (dayDuration*30000)/1440;
                             salaryTime++;
@@ -75,8 +69,7 @@ public class Jefe extends Empresa{
                             }
                         }
                         mutex.acquire();
-                        state = "Trabajando";
-                        Gestion_Jefe2.Estado.setText(state);
+                        Gestion_Jefe2.Estado.setText("Trabajando");
                         Thread.sleep((dayDuration*1000)/24);
                         daysToDeliver--;
                         setDaysToDeliver(daysToDeliver);
@@ -86,11 +79,9 @@ public class Jefe extends Empresa{
                         break;
                     case 3:
                         while (chillTime > 0) {
-                            state = "Jugando Clash Royale";
-                            Gestion_Jefe3.Estado.setText(state);
+                            Gestion_Jefe3.Estado.setText("Jugando Clash Royale");
                             Thread.sleep((dayDuration*15000)/1440);
-                            state = "Revisando papeles";
-                            Gestion_Jefe3.Estado.setText(state);
+                            Gestion_Jefe3.Estado.setText("Revisando papeles");
                             Thread.sleep((dayDuration*15000)/1440);
                             chillTime -= (dayDuration*30000)/1440;
                             salaryTime++;
@@ -101,8 +92,7 @@ public class Jefe extends Empresa{
                             }
                         }
                         mutex.acquire();
-                        state = "Trabajando";
-                        Gestion_Jefe3.Estado.setText(state);
+                        Gestion_Jefe3.Estado.setText("Trabajando");
                         Thread.sleep((dayDuration*1000)/24);
                         daysToDeliver--;
                         setDaysToDeliver(daysToDeliver);
