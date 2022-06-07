@@ -267,14 +267,14 @@ public class Empresa3 extends javax.swing.JFrame {
     }//GEN-LAST:event_EnsambladoresActionPerformed
 
     private void JefeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JefeActionPerformed
-    Gestion_Jefe3 puente = new Gestion_Jefe3(0,null);
+    Gestion_Jefe3 puente = new Gestion_Jefe3();
     
     puente.setVisible(true);
     this.dispose();
     }//GEN-LAST:event_JefeActionPerformed
 
     private void GerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GerenteActionPerformed
-    Gestion_Gerente3 puente = new Gestion_Gerente3(0,0,null);
+    Gestion_Gerente3 puente = new Gestion_Gerente3();
     
     puente.setVisible(true);
     this.dispose();
