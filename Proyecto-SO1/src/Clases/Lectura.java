@@ -45,12 +45,15 @@ public class Lectura {
             int[] maxStorages = {almacenMaxPa, almacenMaxBo, almacenMaxPin, almacenMaxCa};
             int[] dailyProds = {paDiarios, boDiarios, pinDiarios, caDiarios};
             
-            Empresa iNico = new Empresa(daysToDeliver, dayDuration, 1, maxStorages, dailyProds);
-            Empresa UniPhone = new Empresa(daysToDeliver, dayDuration, 3, maxStorages, dailyProds);
+            Empresa iNico = new Empresa(daysToDeliver, dayDuration, 1);
+            iNico.createProds(maxStorages, dailyProds);
+            Empresa UniPhone = new Empresa(daysToDeliver, dayDuration, 3);
+            UniPhone.createProds(maxStorages, dailyProds);
             dailyProds[0] = paDiarios + 1;
             dailyProds[1] = boDiarios - 2;
             dailyProds[2] = pinDiarios + 1;
-            Empresa Butterland = new Empresa(daysToDeliver, dayDuration, 2, maxStorages, dailyProds);
+            Empresa Butterland = new Empresa(daysToDeliver, dayDuration, 2);
+            Butterland.createProds(maxStorages, dailyProds);
             
         } catch (FileNotFoundException ex) {
            JOptionPane.showMessageDialog(null, "No se encontró el archivo de texto (json)","ALERTA", JOptionPane.WARNING_MESSAGE);

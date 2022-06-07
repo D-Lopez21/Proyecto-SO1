@@ -19,8 +19,6 @@ public class Empresa extends Thread{
     private int daysToDeliver;
     private int dayDuration;
     private int numBusiness;
-    private int[] maxStorages;
-    private int[] dailyProds;
     private float managerMoney;
     private float bossMoney;
     private Semaphore mutexCounter;
@@ -29,8 +27,6 @@ public class Empresa extends Thread{
         this.daysToDeliver = daysToDeliver;
         this.dayDuration = dayDuration;
         this.numBusiness = numBusiness;
-        this.maxStorages = maxStorages;
-        this.dailyProds = dailyProds;
         this.managerMoney = 0;
         this.bossMoney = 0;
         this.mutexCounter= new Semaphore(1); 
@@ -87,5 +83,8 @@ public class Empresa extends Thread{
         }
     }
     
+    protected void createProds(int[] maxStorage, int[] dailyProd){
+        Productores prods = new Productores(maxStorage, dailyProd, this.daysToDeliver, this.dayDuration, this.numBusiness);
+    }
     
 }
