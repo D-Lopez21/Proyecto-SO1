@@ -9,38 +9,37 @@ import java.util.concurrent.Semaphore;
 
 /**
  *
- * @author andre
+ * @author Andres y Nicolas
  */
-public class ProdPinCarga {
+public class ProdPinCarga extends Productores{
 
-    private int dayDuration;
-    private double dailyProduce=30;
-    private Semaphore mutex;
-    private Semaphore semPiece;
-    private Semaphore semEnsamblador;
     private boolean stop;
+    private Semaphore mutex;
+    private Semaphore semPinCarga;
+    private Semaphore semEnsamblador;
+    private int dailyProduce;
+    private int dayDuration;
 
-    public ProdPinCarga( int dayDuration, Semaphore mutex, Semaphore semPiece, Semaphore semEnsamblador) {
-
-
-        this.dayDuration=dayDuration;
-        this.mutex = mutex;
-        this.semPiece = semPiece;
-        this.semEnsamblador = semEnsamblador;
-
+    public ProdPinCarga(boolean stop, int[] maxStorages, int[] dailyProds, int daysToDeliver, int dayDuration, int numBusiness) {
+        super(maxStorages, dailyProds, daysToDeliver, dayDuration, numBusiness);
+        this.stop = false;
+        this.mutex = getMutexBotones();
+        this.semPinCarga = getSemBotones();
+        this.semEnsamblador = getSemEnsBotones();
+        this.dailyProduce = dailyProds[0];
+        this.dayDuration = getDayDuration();
     }
 
     public void run() {
         while (!stop) {
             try {
-                semPiece.acquire();
+                semPinCarga.acquire();
 
                 Thread.sleep(Math.round((dayDuration * 1000) / dailyProduce));
                 mutex.acquire();
 
-                Interfaz.pinDisp++;
-
-                Interfaz.avPins.setText(Integer.toString(Interfaz.pinDisp));
+                Interfaz.botonDisp++;
+                Interfaz.avBoton.setText(Integer.toString(Interfaz.botonDisp));
 
                 mutex.release();
                 semEnsamblador.release();
@@ -58,5 +57,4 @@ public class ProdPinCarga {
     public void setStop(boolean stop) {
         this.stop = stop;
     }
-
 }

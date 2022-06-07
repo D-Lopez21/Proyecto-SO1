@@ -9,31 +9,32 @@ import java.util.concurrent.Semaphore;
 
 /**
  *
- * @author andre
+ * @author Andres y Nicolas
  */
-public class ProdBotones extends Thread{
+public class ProdBotones extends Productores{
 
-    private int dayDuration;
-    private double dailyProduce =2;
-    private Semaphore mutex;
-    private Semaphore semPiece;
-    private Semaphore semEnsamblador;
     private boolean stop;
+    private Semaphore mutex;
+    private Semaphore semBotones;
+    private Semaphore semEnsamblador;
+    private int dailyProduce;
+    private int dayDuration;
 
-    public ProdBotones( int dayDuration, Semaphore mutex, Semaphore semPiece, Semaphore semEnsamblador) {
-
-
-        this.dayDuration = dayDuration;
-        this.mutex = mutex;
-        this.semPiece = semPiece;
-        this.semEnsamblador = semEnsamblador;
-
+    public ProdBotones(boolean stop, int[] maxStorages, int[] dailyProds, int daysToDeliver, int dayDuration, int numBusiness) {
+        super(maxStorages, dailyProds, daysToDeliver, dayDuration, numBusiness);
+        this.stop = false;
+        this.mutex = getMutexBotones();
+        this.semBotones = getSemBotones();
+        this.semEnsamblador = getSemEnsBotones();
+        this.dailyProduce = dailyProds[0];
+        this.dayDuration = getDayDuration();
     }
 
+    @Override
     public void run() {
         while (!stop) {
             try {
-                semPiece.acquire();
+                semBotones.acquire();
 
                 Thread.sleep(Math.round((dayDuration * 1000) / dailyProduce));
                 mutex.acquire();
@@ -57,7 +58,4 @@ public class ProdBotones extends Thread{
     public void setStop(boolean stop) {
         this.stop = stop;
     }
-
-
-
 }

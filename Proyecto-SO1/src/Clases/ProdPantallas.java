@@ -1,48 +1,45 @@
-package Clases;
-
-import java.util.concurrent.Semaphore;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package Clases;
+
+import java.util.concurrent.Semaphore;
 
 /**
  *
- * @author andre
+ * @author Andres y Nicolas
  */
-public class ProdPantallas extends Thread{
+public class ProdPantallas extends Productores{
 
-
-    private int dayDuration;
-    private double dailyProduce=30;
-    private Semaphore mutex;
-    private Semaphore semPiece;
-    private Semaphore semEnsamblador;
     private boolean stop;
+    private Semaphore mutex;
+    private Semaphore semPantallas;
+    private Semaphore semEnsamblador;
+    private int dailyProduce;
+    private int dayDuration;
 
-    public ProdPantallas( int dayDuration, Semaphore mutex, Semaphore semPiece, Semaphore semEnsamblador) {
-
-
-        this.dayDuration=dayDuration;
-        this.mutex = mutex;
-        this.semPiece = semPiece;
-        this.semEnsamblador = semEnsamblador;
-
+    public ProdPantallas(boolean stop, int[] maxStorages, int[] dailyProds, int daysToDeliver, int dayDuration, int numBusiness) {
+        super(maxStorages, dailyProds, daysToDeliver, dayDuration, numBusiness);
+        this.stop = false;
+        this.mutex = getMutexBotones();
+        this.semPantallas = getSemBotones();
+        this.semEnsamblador = getSemEnsBotones();
+        this.dailyProduce = dailyProds[0];
+        this.dayDuration = getDayDuration();
     }
 
     public void run() {
         while (!stop) {
             try {
-                semPiece.acquire();
+                semPantallas.acquire();
 
                 Thread.sleep(Math.round((dayDuration * 1000) / dailyProduce));
                 mutex.acquire();
 
-                Interfaz.pantallaDisp++;
-
-                Interfaz.avPantallas.setText(Integer.toString(Interfaz.pantallaDisp));
+                Interfaz.botonDisp++;
+                Interfaz.avBoton.setText(Integer.toString(Interfaz.botonDisp));
 
                 mutex.release();
                 semEnsamblador.release();
@@ -60,6 +57,4 @@ public class ProdPantallas extends Thread{
     public void setStop(boolean stop) {
         this.stop = stop;
     }
-
-
 }

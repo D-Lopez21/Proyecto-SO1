@@ -9,36 +9,38 @@ import java.util.concurrent.Semaphore;
 
 /**
  *
- * @author andre
+ * @author Andres y Nicolas
  */
-public class ProdCamaras extends Thread{
-    private int dayDuration;
-    private double dailyProduce =0.33;
-    private Semaphore mutex;
-    private Semaphore semPiece;
-    private Semaphore semEnsamblador;
+public class ProdCamaras extends Productores{
+
     private boolean stop;
+    private Semaphore mutex;
+    private Semaphore semCamaras;
+    private Semaphore semEnsamblador;
+    private int dailyProduce;
+    private int dayDuration;
 
-    public ProdCamaras( int dayDuration, Semaphore mutex, Semaphore semPiece, Semaphore semEnsamblador) {
-
-
-        this.dayDuration = dayDuration;
-        this.mutex = mutex;
-        this.semPiece = semPiece;
-        this.semEnsamblador = semEnsamblador;
-
+    public ProdCamaras(boolean stop, int[] maxStorages, int[] dailyProds, int daysToDeliver, int dayDuration, int numBusiness) {
+        super(maxStorages, dailyProds, daysToDeliver, dayDuration, numBusiness);
+        this.stop = false;
+        this.mutex = getMutexBotones();
+        this.semCamaras = getSemBotones();
+        this.semEnsamblador = getSemEnsBotones();
+        this.dailyProduce = dailyProds[1];
+        this.dayDuration = getDayDuration();
     }
 
+    @Override
     public void run() {
         while (!stop) {
             try {
-                semPiece.acquire();
+                semCamaras.acquire();
 
-
-                Thread.sleep(1000*dayDuration*3);
+                Thread.sleep(Math.round((dayDuration * 1000) / dailyProduce));
                 mutex.acquire();
-                Interfaz.camarasDisp++;
-                Interfaz.avCamaras.setText(Integer.toString(Interfaz.CamarasDisp));
+
+                Interfaz.botonDisp++;
+                Interfaz.avBoton.setText(Integer.toString(Interfaz.botonDisp));
 
                 mutex.release();
                 semEnsamblador.release();
@@ -56,7 +58,4 @@ public class ProdCamaras extends Thread{
     public void setStop(boolean stop) {
         this.stop = stop;
     }
-
-
-
 }
