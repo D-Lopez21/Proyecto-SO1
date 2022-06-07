@@ -12,63 +12,12 @@ import java.util.concurrent.Semaphore;
  * @author Nicolas B
  */
 public class Gestion_Jefe2 extends javax.swing.JFrame {
-    private int dayDuration;
-    public static String state;
-    public static float money;
-    private boolean stop;
-    private Semaphore mutex;
     /**
      * Creates new form Gestion_Jefe2
      */
-    public Gestion_Jefe2(int dayDuration, Semaphore mutex) {
+    public Gestion_Jefe2() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.dayDuration = dayDuration;
-        this.state = "";
-        this.money = 0;
-        this.mutex = mutex;
-    }
-    
-    public void run(){
-        while(!this.stop){
-            try{
-                double chillTime = (dayDuration*1000) - (dayDuration*1000)/24;
-                int salaryTime = 0;
-                while (chillTime > 0) {
-                    state = "Jugando Clash Royale";
-                    this.Estado.setText(state);
-                    Thread.sleep((dayDuration*18000)/1440);
-                    state = "Revisando papeles";
-                    this.Estado.setText(state);
-                    Thread.sleep((dayDuration*18000)/1440);
-                    chillTime -= (dayDuration*30000)/1440;
-                    salaryTime++;
-                    if ((salaryTime % 2) == 0) {
-                        money += 7;
-                        this.wonSalary.setText(Float.toString(money));
-                    }
-                }
-                this.mutex.acquire();
-                state = "Trabajando";
-                this.Estado.setText(state);
-                Thread.sleep((dayDuration*4000)/24);
-                Empresa2.daysToDeliver--;
-                Gestion_Gerente2.money += 180;
-                Gestion_Gerente2.wonSalary.setText(Integer.toString((int) money));
-                Empresa2.Dia_entrega.setText(Integer.toString(Empresa2.daysToDeliver));
-                this.mutex.release();
-            }catch(Exception e){
-                
-            }
-        }
-    }
-
-    public boolean isStop() {
-        return stop;
-    }
-
-    public void setStop(boolean stop) {
-        this.stop = stop;
     }
 
     /**
@@ -194,13 +143,13 @@ public class Gestion_Jefe2 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Gestion_Jefe2(0,null).setVisible(true);
+                new Gestion_Jefe2().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Estado;
+    public static volatile javax.swing.JLabel Estado;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -210,6 +159,6 @@ public class Gestion_Jefe2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     public static volatile javax.swing.JLabel lostMoney;
-    private javax.swing.JLabel wonSalary;
+    public static volatile javax.swing.JLabel wonSalary;
     // End of variables declaration//GEN-END:variables
 }
