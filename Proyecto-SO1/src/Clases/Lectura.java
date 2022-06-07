@@ -24,7 +24,7 @@ public class Lectura {
         Gson gson = new Gson();
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader("src/projectFiles/data.json"));
+            BufferedReader br = new BufferedReader(new FileReader("src/Clases/data.json"));
             Object json = gson.fromJson(br, Object.class).toString();
             String strJson = json.toString();
             JsonObject jsonObj = parser.parse(strJson).getAsJsonObject();

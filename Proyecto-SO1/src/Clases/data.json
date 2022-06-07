@@ -1,0 +1,42 @@
+{
+    "empresa1": {
+        "dayDuration": 1,
+        "daysToDeliver": 8,
+        "numBusiness": 1,
+        "almacenMaxPa": 40,
+        "almacenMaxBo": 45,
+        "almacenMaxPin": 15,
+        "almacenMaxCa": 20,
+        "paDiarios": 1,
+        "boDiarios": 4,
+        "pinDiarios": 2,
+        "caDiarios": 2 
+
+    },
+    "empresa2": {
+        "dayDuration": 1,
+        "daysToDeliver": 8,
+        "numBusiness": 2,
+        "almacenMaxPa": 40,
+        "almacenMaxBo": 45,
+        "almacenMaxPin": 15,
+        "almacenMaxCa": 20,
+        "paDiarios": 2,
+        "boDiarios": 2,
+        "pinDiarios": 3,
+        "caDiarios": 2 
+    },
+    "empresa3": {
+        "dayDuration": 1,
+        "daysToDeliver": 8,
+        "numBusiness": 3,
+        "almacenMaxPa": 40,
+        "almacenMaxBo": 45,
+        "almacenMaxPin": 15,
+        "almacenMaxCa": 20,
+        "paDiarios": 1,
+        "boDiarios": 4,
+        "pinDiarios": 2,
+        "caDiarios": 2 
+    }
+}

@@ -3,8 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaces;
+package Clases;
 
+import Clases.Empresa;
+import Interfaces.Empresa1;
+import Interfaces.Empresa2;
+import Interfaces.Empresa3;
+import Interfaces.Gestion_Jefe;
+import Interfaces.Gestion_Jefe2;
+import Interfaces.Gestion_Jefe3;
 import java.util.concurrent.Semaphore;
 
 /**
@@ -57,9 +64,9 @@ public class Jefe extends Empresa{
                     case 2:
                         while (chillTime > 0) {
                             Gestion_Jefe2.Estado.setText("Jugando Clash Royale");
-                            Thread.sleep((dayDuration*15000)/1440);
+                            Thread.sleep((dayDuration*18000)/1440);
                             Gestion_Jefe2.Estado.setText("Revisando papeles");
-                            Thread.sleep((dayDuration*15000)/1440);
+                            Thread.sleep((dayDuration*18000)/1440);
                             chillTime -= (dayDuration*30000)/1440;
                             salaryTime++;
                             if ((salaryTime % 2) == 0) {
@@ -70,7 +77,7 @@ public class Jefe extends Empresa{
                         }
                         mutex.acquire();
                         Gestion_Jefe2.Estado.setText("Trabajando");
-                        Thread.sleep((dayDuration*1000)/24);
+                        Thread.sleep((dayDuration*4000)/24);
                         daysToDeliver--;
                         setDaysToDeliver(daysToDeliver);
                         payManager();
@@ -80,9 +87,9 @@ public class Jefe extends Empresa{
                     case 3:
                         while (chillTime > 0) {
                             Gestion_Jefe3.Estado.setText("Jugando Clash Royale");
-                            Thread.sleep((dayDuration*15000)/1440);
+                            Thread.sleep((dayDuration*17000)/1440);
                             Gestion_Jefe3.Estado.setText("Revisando papeles");
-                            Thread.sleep((dayDuration*15000)/1440);
+                            Thread.sleep((dayDuration*17000)/1440);
                             chillTime -= (dayDuration*30000)/1440;
                             salaryTime++;
                             if ((salaryTime % 2) == 0) {
@@ -93,7 +100,7 @@ public class Jefe extends Empresa{
                         }
                         mutex.acquire();
                         Gestion_Jefe3.Estado.setText("Trabajando");
-                        Thread.sleep((dayDuration*1000)/24);
+                        Thread.sleep((dayDuration*3000)/24);
                         daysToDeliver--;
                         setDaysToDeliver(daysToDeliver);
                         payManager();

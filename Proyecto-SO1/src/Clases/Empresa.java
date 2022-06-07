@@ -3,8 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaces;
+package Clases;
 
+import Interfaces.Gestion_Gerente;
+import Interfaces.Gestion_Gerente2;
+import Interfaces.Gestion_Gerente3;
 import java.util.concurrent.Semaphore;
 
 /**
