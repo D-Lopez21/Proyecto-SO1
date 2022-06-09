@@ -27,14 +27,12 @@ public class Ensambladores3 extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         ContarEnsambladores = new javax.swing.JButton();
         RestarEnsambladores = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        Ensambladores = new javax.swing.JLabel();
+        assemblyPhones = new javax.swing.JLabel();
+        numAssemblers = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -44,7 +42,7 @@ public class Ensambladores3 extends javax.swing.JFrame {
         Valor_pin = new javax.swing.JLabel();
         Valor_camara = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        Ensambladores1 = new javax.swing.JLabel();
+        assemblersCost = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -58,10 +56,6 @@ public class Ensambladores3 extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Teléfonos ensamblados:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, -1, 20));
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setText("Historial de Teléfonos:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Pantallas Almacenadas:");
@@ -89,17 +83,13 @@ public class Ensambladores3 extends javax.swing.JFrame {
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel5.setText("0");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, -1, -1));
+        assemblyPhones.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        assemblyPhones.setText("0");
+        getContentPane().add(assemblyPhones, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel6.setText("0");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, -1, -1));
-
-        Ensambladores.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Ensambladores.setText("0");
-        getContentPane().add(Ensambladores, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, -1, -1));
+        numAssemblers.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        numAssemblers.setText("0");
+        getContentPane().add(numAssemblers, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("Botones Almacenados:");
@@ -111,7 +101,7 @@ public class Ensambladores3 extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel10.setText("Ensambladores:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("Pin de carga Almacenadas:");
@@ -135,11 +125,11 @@ public class Ensambladores3 extends javax.swing.JFrame {
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel12.setText("Gasto generado:");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, -1, -1));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, -1, -1));
 
-        Ensambladores1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Ensambladores1.setText("0");
-        getContentPane().add(Ensambladores1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, -1, -1));
+        assemblersCost.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        assemblersCost.setText("0");
+        getContentPane().add(assemblersCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoDiego2.gif"))); // NOI18N
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(-310, -150, 730, 490));
@@ -202,25 +192,23 @@ public class Ensambladores3 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ContarEnsambladores;
-    private javax.swing.JLabel Ensambladores;
-    private javax.swing.JLabel Ensambladores1;
     private javax.swing.JButton RestarEnsambladores;
-    private javax.swing.JLabel Valor_botones;
-    private javax.swing.JLabel Valor_camara;
-    private javax.swing.JLabel Valor_pantallas;
-    private javax.swing.JLabel Valor_pin;
+    public static volatile javax.swing.JLabel Valor_botones;
+    public static volatile javax.swing.JLabel Valor_camara;
+    public static volatile javax.swing.JLabel Valor_pantallas;
+    public static volatile javax.swing.JLabel Valor_pin;
+    public static volatile javax.swing.JLabel assemblersCost;
+    public static volatile javax.swing.JLabel assemblyPhones;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    public static volatile javax.swing.JLabel numAssemblers;
     // End of variables declaration//GEN-END:variables
 }

@@ -27,7 +27,7 @@ public class ProdCamaras extends Productores{
     public ProdCamaras(boolean stop, int[] maxStorages, int[] dailyProds, int daysToDeliver, int dayDuration, int numBusiness) {
         super(maxStorages, dailyProds, daysToDeliver, dayDuration, numBusiness);
         this.stop = false;
-        this.dailyProduce = dailyProds[0];
+        this.dailyProduce = dailyProds[3];
 
     }
 
@@ -42,7 +42,7 @@ public class ProdCamaras extends Productores{
             try {
                 semCamaras.acquire();
 
-                Thread.sleep(Math.round((dayDuration * 1000) / dailyProduce));
+                Thread.sleep(Math.round(dayDuration * 1000 * dailyProduce));
                 mutex.acquire();
 
                 Productores.camarasDisp++;

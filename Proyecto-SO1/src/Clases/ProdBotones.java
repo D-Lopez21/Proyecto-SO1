@@ -27,7 +27,7 @@ public class ProdBotones extends Productores{
     public ProdBotones(boolean stop, int[] maxStorages, int[] dailyProds, int daysToDeliver, int dayDuration, int numBusiness) {
         super(maxStorages, dailyProds, daysToDeliver, dayDuration, numBusiness);
         this.stop = false;
-        this.dailyProduce = dailyProds[0];
+        this.dailyProduce = dailyProds[1];
 
     }
 

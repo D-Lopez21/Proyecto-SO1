@@ -28,20 +28,20 @@ public class Lectura {
             Object json = gson.fromJson(br, Object.class).toString();
             String strJson = json.toString();
             JsonObject jsonObj = parser.parse(strJson).getAsJsonObject();
-
-            JsonElement empresa = jsonObj.get("empresa").getAsJsonArray();
+            
+            JsonElement empresa = jsonObj.get("empresa").getAsJsonArray().get(0);
             JsonObject empresaObj = parser.parse(empresa.toString()).getAsJsonObject();
             
-            int dayDuration = Integer.parseInt(empresaObj.get("dayDuration").toString());
-            int daysToDeliver = Integer.parseInt(empresaObj.get("daysToDeliver").toString());
-            int almacenMaxPa = Integer.parseInt(empresaObj.get("almacenMaxPa").toString());
-            int almacenMaxBo = Integer.parseInt(empresaObj.get("almacenMaxBo").toString());
-            int almacenMaxPin = Integer.parseInt(empresaObj.get("almacenMaxPin").toString());
-            int almacenMaxCa = Integer.parseInt(empresaObj.get("almacenMaxCa").toString());
-            int paDiarios = Integer.parseInt(empresaObj.get("paDiarios").toString());
-            int boDiarios = Integer.parseInt(empresaObj.get("boDiarios").toString());
-            int pinDiarios = Integer.parseInt(empresaObj.get("pinDiarios").toString());
-            int caDiarios = Integer.parseInt(empresaObj.get("caDiarios").toString());
+            int dayDuration = empresaObj.get("dayDuration").getAsInt();
+            int daysToDeliver = empresaObj.get("daysToDeliver").getAsInt();
+            int almacenMaxPa = empresaObj.get("almacenMaxPa").getAsInt();
+            int almacenMaxBo = empresaObj.get("almacenMaxBo").getAsInt();
+            int almacenMaxPin = empresaObj.get("almacenMaxPin").getAsInt();
+            int almacenMaxCa = empresaObj.get("almacenMaxCa").getAsInt();
+            int paDiarios = empresaObj.get("paDiarios").getAsInt();
+            int boDiarios = empresaObj.get("boDiarios").getAsInt();
+            int pinDiarios = empresaObj.get("pinDiarios").getAsInt();
+            int caDiarios = empresaObj.get("caDiarios").getAsInt();
             int[] maxStorages = {almacenMaxPa, almacenMaxBo, almacenMaxPin, almacenMaxCa};
             int[] dailyProds = {paDiarios, boDiarios, pinDiarios, caDiarios};
             

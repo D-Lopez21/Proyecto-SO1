@@ -5,6 +5,8 @@
  */
 package Interfaces;
 
+import Clases.Lectura;
+
 /**
  *
  * @author DIEGO_LOPEZ
@@ -17,6 +19,8 @@ public class InterfazBase extends javax.swing.JFrame {
     public InterfazBase() {
         initComponents();
         this.setLocationRelativeTo(null);
+        Lectura readData = new Lectura();
+        readData.readJson();
     }
 
     /**
