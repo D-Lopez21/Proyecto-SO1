@@ -18,6 +18,13 @@ import javax.swing.JOptionPane;
  * @author Andres y Nicolas
  */
 public class Lectura {
+    
+    private int dayDuration;
+    private int daysToDeliver;
+    private int[] maxStorages;
+    private int[] dailyProds;
+    private int[] dailyProds2;
+    
     public void readJson() {
         
         JsonParser parser = new JsonParser();
@@ -32,31 +39,71 @@ public class Lectura {
             JsonElement empresa = jsonObj.get("empresa").getAsJsonArray().get(0);
             JsonObject empresaObj = parser.parse(empresa.toString()).getAsJsonObject();
             
-            int dayDuration = empresaObj.get("dayDuration").getAsInt();
-            int daysToDeliver = empresaObj.get("daysToDeliver").getAsInt();
-            int almacenMaxPa = empresaObj.get("almacenMaxPa").getAsInt();
-            int almacenMaxBo = empresaObj.get("almacenMaxBo").getAsInt();
-            int almacenMaxPin = empresaObj.get("almacenMaxPin").getAsInt();
-            int almacenMaxCa = empresaObj.get("almacenMaxCa").getAsInt();
-            int paDiarios = empresaObj.get("paDiarios").getAsInt();
-            int boDiarios = empresaObj.get("boDiarios").getAsInt();
-            int pinDiarios = empresaObj.get("pinDiarios").getAsInt();
-            int caDiarios = empresaObj.get("caDiarios").getAsInt();
-            int[] maxStorages = {almacenMaxPa, almacenMaxBo, almacenMaxPin, almacenMaxCa};
-            int[] dailyProds = {paDiarios, boDiarios, pinDiarios, caDiarios};
+            this.setDayDuration(empresaObj.get("dayDuration").getAsInt());
+            this.setDaysToDeliver(empresaObj.get("daysToDeliver").getAsInt());
             
-            Empresa iNico = new Empresa(daysToDeliver, dayDuration, 1);
-            iNico.createProds(maxStorages, dailyProds);
-            Empresa UniPhone = new Empresa(daysToDeliver, dayDuration, 3);
-            UniPhone.createProds(maxStorages, dailyProds);
-            dailyProds[0] = paDiarios + 1;
-            dailyProds[1] = boDiarios - 2;
-            dailyProds[2] = pinDiarios + 1;
-            Empresa Butterland = new Empresa(daysToDeliver, dayDuration, 2);
-            Butterland.createProds(maxStorages, dailyProds);
+            int[] storages = {0,0,0,0};
+            storages[0] = empresaObj.get("almacenMaxPa").getAsInt();
+            storages[1] = empresaObj.get("almacenMaxBo").getAsInt();
+            storages[2] = empresaObj.get("almacenMaxPin").getAsInt();
+            storages[3] = empresaObj.get("almacenMaxCa").getAsInt();
+            this.setMaxStorages(storages);
+            
+            int[] dayProds = {0,0,0,0};
+            dayProds[0] = empresaObj.get("paDiarios").getAsInt();
+            dayProds[1] = empresaObj.get("boDiarios").getAsInt();
+            dayProds[2] = empresaObj.get("pinDiarios").getAsInt();
+            dayProds[3] = empresaObj.get("caDiarios").getAsInt();
+            this.setDailyProds(dayProds);
+            
+            dayProds[0] += 1;
+            dayProds[1] -= 2;
+            dayProds[2] += 1;
+            this.setDailyProds2(dayProds);
             
         } catch (FileNotFoundException ex) {
            JOptionPane.showMessageDialog(null, "No se encontró el archivo de texto (json)","ALERTA", JOptionPane.WARNING_MESSAGE);
         }
     }
+
+    public int getDayDuration() {
+        return dayDuration;
+    }
+
+    public void setDayDuration(int dayDuration) {
+        this.dayDuration = dayDuration;
+    }
+
+    public int getDaysToDeliver() {
+        return daysToDeliver;
+    }
+
+    public void setDaysToDeliver(int daysToDeliver) {
+        this.daysToDeliver = daysToDeliver;
+    }
+
+    public int[] getMaxStorages() {
+        return maxStorages;
+    }
+
+    public void setMaxStorages(int[] maxStorages) {
+        this.maxStorages = maxStorages;
+    }
+
+    public int[] getDailyProds() {
+        return dailyProds;
+    }
+
+    public void setDailyProds(int[] dailyProds) {
+        this.dailyProds = dailyProds;
+    }
+
+    public int[] getDailyProds2() {
+        return dailyProds2;
+    }
+
+    public void setDailyProds2(int[] dailyProds2) {
+        this.dailyProds2 = dailyProds2;
+    }
+    
 }

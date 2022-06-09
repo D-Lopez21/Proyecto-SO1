@@ -40,9 +40,9 @@ public class Ensamblador extends Productores{
     private Semaphore semPinCarga;
     private Semaphore semEnsPinCarga;
 
-    public Ensamblador(boolean stop, Semaphore mutexEnsamblador, int[] maxStorages, int[] dailyProds, int daysToDeliver, int dayDuration, int numBusiness) {
+    public Ensamblador(Semaphore mutexEnsamblador, int[] maxStorages, int[] dailyProds, int daysToDeliver, int dayDuration, int numBusiness) {
         super(maxStorages, dailyProds, daysToDeliver, dayDuration, numBusiness);
-        this.stop = stop;
+        this.stop = true;
         this.mutexEnsamblador = new Semaphore(1);
     }
 

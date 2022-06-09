@@ -24,9 +24,9 @@ public class ProdCamaras extends Productores{
     private int dayDuration;
     private int numBusiness;
 
-    public ProdCamaras(boolean stop, int[] maxStorages, int[] dailyProds, int daysToDeliver, int dayDuration, int numBusiness) {
+    public ProdCamaras(int[] maxStorages, int[] dailyProds, int daysToDeliver, int dayDuration, int numBusiness) {
         super(maxStorages, dailyProds, daysToDeliver, dayDuration, numBusiness);
-        this.stop = false;
+        this.stop = true;
         this.dailyProduce = dailyProds[3];
 
     }

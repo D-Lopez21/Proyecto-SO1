@@ -111,6 +111,15 @@ public class Productores extends Empresa{
     public Semaphore getSemEnsPinCarga() {
         return semEnsPinCarga;
     }
-    
+    protected void createProdMachines(){
+        ProdBotones pb = new ProdBotones(this.maxStorages, this.dailyProds, super.getDaysToDeliver(), super.getDayDuration(), super.getNumBusiness());
+        pb.run();
+        ProdCamaras pc = new ProdCamaras(this.maxStorages, this.dailyProds, super.getDaysToDeliver(), super.getDayDuration(), super.getNumBusiness());
+        pc.run();
+        ProdPantallas pp = new ProdPantallas(this.maxStorages, this.dailyProds, super.getDaysToDeliver(), super.getDayDuration(), super.getNumBusiness());
+        pp.run();
+        ProdPinCarga ppc = new ProdPinCarga(this.maxStorages, this.dailyProds, super.getDaysToDeliver(), super.getDayDuration(), super.getNumBusiness());
+        ppc.run();
+    }
     
 }

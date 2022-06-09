@@ -5,6 +5,7 @@
  */
 package Interfaces;
 
+import Clases.Empresa;
 import Clases.Lectura;
 
 /**
@@ -12,14 +13,16 @@ import Clases.Lectura;
  * @author DIEGO_LOPEZ
  */
 public class InterfazBase extends javax.swing.JFrame {
-
+    
+    private Lectura readData;
+    
     /**
      * Creates new form IntefazBase
      */
     public InterfazBase() {
         initComponents();
         this.setLocationRelativeTo(null);
-        Lectura readData = new Lectura();
+        this.readData = new Lectura();
         readData.readJson();
     }
 
@@ -97,6 +100,9 @@ public class InterfazBase extends javax.swing.JFrame {
     
     empresa2.setVisible(true);
     this.dispose();
+    
+    Empresa Butterland = new Empresa(readData.getDaysToDeliver(), readData.getDayDuration(), 2);
+    Butterland.createObjs(readData.getMaxStorages(), readData.getDailyProds2());
             
     }//GEN-LAST:event_Empresa2ActionPerformed
 
@@ -111,6 +117,9 @@ public class InterfazBase extends javax.swing.JFrame {
     empresa1.setVisible(true);
     this.dispose();
             
+    Empresa iNico = new Empresa(readData.getDaysToDeliver(), readData.getDayDuration(), 1);
+    iNico.createObjs(readData.getMaxStorages(), readData.getDailyProds());
+
     }//GEN-LAST:event_Empresa1ActionPerformed
 
     private void Empresa3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Empresa3ActionPerformed
@@ -118,6 +127,10 @@ public class InterfazBase extends javax.swing.JFrame {
     
     empresa3.setVisible(true);
     this.dispose();
+    
+    Empresa UniPhone = new Empresa(readData.getDaysToDeliver(), readData.getDayDuration(), 3);
+    UniPhone.createObjs(readData.getMaxStorages(), readData.getDailyProds());
+    
     }//GEN-LAST:event_Empresa3ActionPerformed
 
     /**

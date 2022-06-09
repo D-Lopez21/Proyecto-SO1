@@ -83,8 +83,13 @@ public class Empresa extends Thread{
         }
     }
     
-    protected void createProds(int[] maxStorage, int[] dailyProd){
-        Productores prods = new Productores(maxStorage, dailyProd, this.daysToDeliver, this.dayDuration, this.numBusiness);
+    public void createObjs(int[] maxStorage, int[] dailyProd){
+        Productores prod = new Productores(maxStorage, dailyProd, this.daysToDeliver, this.dayDuration, this.numBusiness);
+        prod.createProdMachines();
+        Gerente ger = new Gerente(this.daysToDeliver, this.dayDuration, this.numBusiness);
+        ger.run();
+        Jefe jef = new Jefe(this.daysToDeliver, this.dayDuration, this.numBusiness);
+        jef.run();
     }
     
 }

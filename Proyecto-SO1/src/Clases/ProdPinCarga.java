@@ -24,9 +24,9 @@ public class ProdPinCarga extends Productores{
     private int dayDuration;
     private int numBusiness;
 
-    public ProdPinCarga(boolean stop, int[] maxStorages, int[] dailyProds, int daysToDeliver, int dayDuration, int numBusiness) {
+    public ProdPinCarga(int[] maxStorages, int[] dailyProds, int daysToDeliver, int dayDuration, int numBusiness) {
         super(maxStorages, dailyProds, daysToDeliver, dayDuration, numBusiness);
-        this.stop = false;
+        this.stop = true;
         this.dailyProduce = dailyProds[2];
 
     }

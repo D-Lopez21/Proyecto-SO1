@@ -22,9 +22,9 @@ public class Jefe extends Empresa{
     
     private boolean stop;
 
-    public Jefe(boolean stop, int daysToDeliver, int dayDuration, int numBusiness) {
+    public Jefe(int daysToDeliver, int dayDuration, int numBusiness) {
         super(daysToDeliver, dayDuration, numBusiness);
-        this.stop = false;
+        this.stop = true;
     }
     
      public void run(){
