@@ -5,6 +5,9 @@
  */
 package Clases;
 
+import Interfaces.Productor_Pantallas;
+import Interfaces.Productor_Pantallas2;
+import Interfaces.Productor_Pantallas3;
 import java.util.concurrent.Semaphore;
 
 /**
@@ -15,31 +18,45 @@ public class ProdPantallas extends Productores{
 
     private boolean stop;
     private Semaphore mutex;
-    private Semaphore semPantallas;
+    private Semaphore semCamaras;
     private Semaphore semEnsamblador;
     private int dailyProduce;
     private int dayDuration;
+    private int numBusiness;
 
     public ProdPantallas(boolean stop, int[] maxStorages, int[] dailyProds, int daysToDeliver, int dayDuration, int numBusiness) {
         super(maxStorages, dailyProds, daysToDeliver, dayDuration, numBusiness);
         this.stop = false;
-        this.mutex = getMutexBotones();
-        this.semPantallas = getSemBotones();
-        this.semEnsamblador = getSemEnsBotones();
         this.dailyProduce = dailyProds[0];
-        this.dayDuration = getDayDuration();
+
     }
 
+    @Override
     public void run() {
+        this.mutex = getMutexBotones();
+        this.semCamaras = getSemCamaras();
+        this.semEnsamblador = getSemEnsCamaras();
+        this.dayDuration = getDayDuration();
+        this.numBusiness = getNumBusiness();
         while (!stop) {
             try {
-                semPantallas.acquire();
+                semCamaras.acquire();
 
                 Thread.sleep(Math.round((dayDuration * 1000) / dailyProduce));
                 mutex.acquire();
 
-                Interfaz.botonDisp++;
-                Interfaz.avBoton.setText(Integer.toString(Interfaz.botonDisp));
+                Productores.camarasDisp++;
+                switch (numBusiness) {
+                    case 1:
+                        Productor_Pantallas.panDisp.setText(Integer.toString(Productores.pantallasDisp));
+                        break;
+                    case 2:
+                        Productor_Pantallas2.panDisp.setText(Integer.toString(Productores.pantallasDisp));
+                        break;
+                    case 3:
+                        Productor_Pantallas3.panDisp.setText(Integer.toString(Productores.pantallasDisp));
+                        break;
+                }
 
                 mutex.release();
                 semEnsamblador.release();

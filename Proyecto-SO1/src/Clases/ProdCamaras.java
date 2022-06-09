@@ -5,6 +5,9 @@
  */
 package Clases;
 
+import Interfaces.Productor_Camara;
+import Interfaces.Productor_Camara2;
+import Interfaces.Productor_Camara3;
 import java.util.concurrent.Semaphore;
 
 /**
@@ -19,19 +22,22 @@ public class ProdCamaras extends Productores{
     private Semaphore semEnsamblador;
     private int dailyProduce;
     private int dayDuration;
+    private int numBusiness;
 
     public ProdCamaras(boolean stop, int[] maxStorages, int[] dailyProds, int daysToDeliver, int dayDuration, int numBusiness) {
         super(maxStorages, dailyProds, daysToDeliver, dayDuration, numBusiness);
         this.stop = false;
-        this.mutex = getMutexBotones();
-        this.semCamaras = getSemBotones();
-        this.semEnsamblador = getSemEnsBotones();
-        this.dailyProduce = dailyProds[1];
-        this.dayDuration = getDayDuration();
+        this.dailyProduce = dailyProds[0];
+
     }
 
     @Override
     public void run() {
+        this.mutex = getMutexBotones();
+        this.semCamaras = getSemCamaras();
+        this.semEnsamblador = getSemEnsCamaras();
+        this.dayDuration = getDayDuration();
+        this.numBusiness = getNumBusiness();
         while (!stop) {
             try {
                 semCamaras.acquire();
@@ -39,8 +45,18 @@ public class ProdCamaras extends Productores{
                 Thread.sleep(Math.round((dayDuration * 1000) / dailyProduce));
                 mutex.acquire();
 
-                Interfaz.botonDisp++;
-                Interfaz.avBoton.setText(Integer.toString(Interfaz.botonDisp));
+                Productores.camarasDisp++;
+                switch (numBusiness) {
+                    case 1:
+                        Productor_Camara.camDisp.setText(Integer.toString(Productores.camarasDisp));
+                        break;
+                    case 2:
+                        Productor_Camara2.camDisp.setText(Integer.toString(Productores.camarasDisp));
+                        break;
+                    case 3:
+                        Productor_Camara3.camDisp.setText(Integer.toString(Productores.camarasDisp));
+                        break;
+                }
 
                 mutex.release();
                 semEnsamblador.release();

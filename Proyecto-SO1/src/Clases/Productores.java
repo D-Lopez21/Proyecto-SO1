@@ -29,6 +29,13 @@ public class Productores extends Empresa{
     private Semaphore mutexPinCarga;
     private Semaphore semPinCarga;
     private Semaphore semEnsPinCarga;
+    //Contadores de piezas en el almacen
+    public static volatile int botonesDisp = 0;
+    public static volatile int camarasDisp = 0;
+    public static volatile int pantallasDisp = 0;
+    public static volatile int pinCargaDisp = 0;
+    //Contador de smartphones
+    public static volatile int phonesDisp = 0;
     
     private int[] maxStorages;
     private int[] dailyProds;

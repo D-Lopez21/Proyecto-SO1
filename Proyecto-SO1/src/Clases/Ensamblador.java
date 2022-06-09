@@ -121,49 +121,4 @@ public class Ensamblador extends Thread{
     public void setStop(boolean stop) {
         this.stop = stop;
     }
-
-    public int getDayDuration() {
-        return dayDuration;
-    }
-
-    public void setDayDuration(int dayDuration) {
-        this.dayDuration = dayDuration;
-    }
-
-
-    public void setDailyProduce(int dailyProduce) {
-        this.dailyProduce = dailyProduce;
-    }
-
-    public int getPantallas() {
-        return pantallas;
-    }
-
-    public void setPantallas(int pantallas) {
-        this.pantallas = pantallas;
-    }
-
-    public int getBotones() {
-        return botones;
-    }
-
-    public void setBotones(int botones) {
-        this.botones = botones;
-    }
-
-    public int getCamaras() {
-        return camaras;
-    }
-
-    public void setCamaras(int camaras) {
-        this.camaras = camaras;
-    }
-
-    public int getPin() {
-        return pins;
-    }
-
-    public void setPins(int pins) {
-        this.pins = pins;
-    }
 }

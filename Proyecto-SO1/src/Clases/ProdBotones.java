@@ -5,6 +5,9 @@
  */
 package Clases;
 
+import Interfaces.Productor_Botones;
+import Interfaces.Productor_Botones2;
+import Interfaces.Productor_Botones3;
 import java.util.concurrent.Semaphore;
 
 /**
@@ -19,19 +22,22 @@ public class ProdBotones extends Productores{
     private Semaphore semEnsamblador;
     private int dailyProduce;
     private int dayDuration;
+    private int numBusiness;
 
     public ProdBotones(boolean stop, int[] maxStorages, int[] dailyProds, int daysToDeliver, int dayDuration, int numBusiness) {
         super(maxStorages, dailyProds, daysToDeliver, dayDuration, numBusiness);
         this.stop = false;
-        this.mutex = getMutexBotones();
-        this.semBotones = getSemBotones();
-        this.semEnsamblador = getSemEnsBotones();
         this.dailyProduce = dailyProds[0];
-        this.dayDuration = getDayDuration();
+
     }
 
     @Override
     public void run() {
+        this.mutex = getMutexBotones();
+        this.semBotones = getSemBotones();
+        this.semEnsamblador = getSemEnsBotones();
+        this.dayDuration = getDayDuration();
+        this.numBusiness = getNumBusiness();
         while (!stop) {
             try {
                 semBotones.acquire();
@@ -39,8 +45,18 @@ public class ProdBotones extends Productores{
                 Thread.sleep(Math.round((dayDuration * 1000) / dailyProduce));
                 mutex.acquire();
 
-                Interfaz.botonDisp++;
-                Interfaz.avBoton.setText(Integer.toString(Interfaz.botonDisp));
+                Productores.botonesDisp++;
+                switch (numBusiness) {
+                    case 1:
+                        Productor_Botones.botonDisp.setText(Integer.toString(Productores.botonesDisp));
+                        break;
+                    case 2:
+                        Productor_Botones2.botonDisp.setText(Integer.toString(Productores.botonesDisp));
+                        break;
+                    case 3:
+                        Productor_Botones3.botonDisp.setText(Integer.toString(Productores.botonesDisp));
+                        break;
+                }
 
                 mutex.release();
                 semEnsamblador.release();

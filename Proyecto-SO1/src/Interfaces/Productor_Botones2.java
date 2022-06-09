@@ -32,9 +32,9 @@ public class Productor_Botones2 extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        prodHired = new javax.swing.JLabel();
+        botonDisp = new javax.swing.JLabel();
+        prodCost = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -75,20 +75,20 @@ public class Productor_Botones2 extends javax.swing.JFrame {
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 130, -1));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("0");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, -1, -1));
+        prodHired.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        prodHired.setForeground(new java.awt.Color(255, 255, 255));
+        prodHired.setText("0");
+        getContentPane().add(prodHired, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("0");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, -1, -1));
+        botonDisp.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        botonDisp.setForeground(new java.awt.Color(255, 255, 255));
+        botonDisp.setText("0");
+        getContentPane().add(botonDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("0");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, -1, -1));
+        prodCost.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        prodCost.setForeground(new java.awt.Color(255, 255, 255));
+        prodCost.setText("0");
+        getContentPane().add(prodCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, -1, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoAndres_1.gif"))); // NOI18N
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 0, 470, 210));
@@ -142,6 +142,7 @@ public class Productor_Botones2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static volatile javax.swing.JLabel botonDisp;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -149,9 +150,8 @@ public class Productor_Botones2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    public static volatile javax.swing.JLabel prodCost;
+    public static volatile javax.swing.JLabel prodHired;
     // End of variables declaration//GEN-END:variables
 }
