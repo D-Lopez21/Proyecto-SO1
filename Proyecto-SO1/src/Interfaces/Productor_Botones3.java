@@ -5,6 +5,9 @@
  */
 package Interfaces;
 
+import Clases.Productores;
+
+
 /**
  *
  * @author DIEGO_LOPEZ
@@ -14,6 +17,8 @@ public class Productor_Botones3 extends javax.swing.JFrame {
     public Productor_Botones3() {
         initComponents();
         this.setLocationRelativeTo(null);
+        botonDisp.setText(String.valueOf(Productores.botonesDisp3));
+   
     }
 
     /**

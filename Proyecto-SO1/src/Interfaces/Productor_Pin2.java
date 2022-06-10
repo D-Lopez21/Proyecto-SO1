@@ -5,6 +5,9 @@
  */
 package Interfaces;
 
+import Clases.Productores;
+
+
 /**
  *
  * @author DIEGO_LOPEZ
@@ -14,6 +17,7 @@ public class Productor_Pin2 extends javax.swing.JFrame {
     public Productor_Pin2() {
         initComponents();
         this.setLocationRelativeTo(null);
+        pinDisp.setText(String.valueOf(Productores.pinCargaDisp2));
     }
 
     /**

@@ -5,6 +5,12 @@
  */
 package Interfaces;
 
+<<<<<<< Updated upstream
+=======
+import Clases.Productores;
+import java.util.concurrent.Semaphore;
+
+>>>>>>> Stashed changes
 /**
  *
  * @author DIEGO_LOPEZ
@@ -19,8 +25,18 @@ public class Empresa1 extends javax.swing.JFrame {
     public Empresa1(int daysToDeliver) {
         initComponents();
         this.setLocationRelativeTo(null);
+<<<<<<< Updated upstream
         this.daysToDeliver = daysToDeliver;
 
+=======
+        Valor_botones.setText(String.valueOf(Productores.botonesDisp1));
+        Valor_pantallas.setText(String.valueOf(Productores.pantallasDisp1));
+        Valor_pin.setText(String.valueOf(Productores.pinCargaDisp1));
+        Valor_camara.setText(String.valueOf(Productores.camarasDisp1));
+        ///Dias.setText(String.valueOf(Empresa.dayDuration));
+        TlfVendidos.setText(String.valueOf(Productores.phonesDisp1));
+        ///Dia_entrega.setText(String.valueOf(Productores.botonesDisp3));
+>>>>>>> Stashed changes
     }
 
     /**

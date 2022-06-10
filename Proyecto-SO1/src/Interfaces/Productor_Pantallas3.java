@@ -5,6 +5,8 @@
  */
 package Interfaces;
 
+import Clases.Productores;
+
 /**
  *
  * @author DIEGO_LOPEZ
@@ -14,6 +16,8 @@ public class Productor_Pantallas3 extends javax.swing.JFrame {
     public Productor_Pantallas3() {
         initComponents();
         this.setLocationRelativeTo(null);
+        panDisp.setText(String.valueOf(Productores.pantallasDisp3));
+      
     }
 
     /**

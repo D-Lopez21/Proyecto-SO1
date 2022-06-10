@@ -5,6 +5,8 @@
  */
 package Interfaces;
 
+import Clases.Productores;
+
 /**
  *
  * @author DIEGO_LOPEZ
@@ -19,6 +21,13 @@ public class Empresa3 extends javax.swing.JFrame {
     public Empresa3() {
         initComponents();
         this.setLocationRelativeTo(null);
+        Valor_botones.setText(String.valueOf(Productores.botonesDisp3));
+        Valor_pantallas.setText(String.valueOf(Productores.pantallasDisp3));
+        Valor_pin.setText(String.valueOf(Productores.pinCargaDisp3));
+        Valor_camara.setText(String.valueOf(Productores.camarasDisp3));
+        ///Dias.setText(String.valueOf(Empresa.dayDuration));
+        TlfVendidos.setText(String.valueOf(Productores.phonesDisp3));
+        ///Dia_entrega.setText(String.valueOf(Productores.botonesDisp3));
         this.daysToDeliver = daysToDeliver;
 
     }

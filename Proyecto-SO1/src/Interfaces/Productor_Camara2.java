@@ -5,6 +5,9 @@
  */
 package Interfaces;
 
+import Clases.Productores;
+
+
 /**
  *
  * @author DIEGO_LOPEZ
@@ -14,6 +17,7 @@ public class Productor_Camara2 extends javax.swing.JFrame {
     public Productor_Camara2() {
         initComponents();
         this.setLocationRelativeTo(null);
+        camDisp.setText(String.valueOf(Productores.camarasDisp2));
     }
 
     /**

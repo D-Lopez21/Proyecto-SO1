@@ -5,6 +5,9 @@
  */
 package Interfaces;
 
+import Clases.Productores;
+
+
 /**
  *
  * @author DIEGO_LOPEZ
@@ -14,6 +17,10 @@ public class Ensambladores2 extends javax.swing.JFrame {
     public Ensambladores2() {
         initComponents();
         this.setLocationRelativeTo(null);
+        Valor_botones.setText(String.valueOf(Productores.botonesDisp2));
+        Valor_pantallas.setText(String.valueOf(Productores.pantallasDisp2));
+        Valor_pin.setText(String.valueOf(Productores.pinCargaDisp2));
+        Valor_camara.setText(String.valueOf(Productores.camarasDisp2));
     }
 
     /**
