@@ -5,6 +5,9 @@
  */
 package Clases;
 
+import Interfaces.Empresa1;
+import Interfaces.Empresa2;
+import Interfaces.Empresa3;
 import Interfaces.Ensambladores;
 import Interfaces.Ensambladores2;
 import Interfaces.Ensambladores3;
@@ -42,7 +45,7 @@ public class Ensamblador extends Productores{
 
     public Ensamblador(Semaphore mutexEnsamblador, int[] maxStorages, int[] dailyProds, int daysToDeliver, int dayDuration, int numBusiness) {
         super(maxStorages, dailyProds, daysToDeliver, dayDuration, numBusiness);
-        this.stop = true;
+        this.stop = false;
         this.mutexEnsamblador = new Semaphore(1);
     }
 
@@ -94,16 +97,18 @@ public class Ensamblador extends Productores{
                     
                     mutexPantallas.acquire(pantalla);
                     //Saco la cantidad de pantallas que necesito
-                    Productores.pantallasDisp -= pantalla;
                     switch (numBusiness) {
                     case 1:
-                        Ensambladores.Valor_pantallas.setText(Integer.toString(Productores.pantallasDisp));
+                        Productores.pantallasDisp1 -= pantalla;
+                        Ensambladores.Valor_pantallas.setText(Integer.toString(Productores.pantallasDisp1));
                         break;
                     case 2:
-                        Ensambladores2.Valor_pantallas.setText(Integer.toString(Productores.pantallasDisp));
+                        Productores.pantallasDisp2 -= pantalla;
+                        Ensambladores2.Valor_pantallas.setText(Integer.toString(Productores.pantallasDisp2));
                         break;
                     case 3:
-                        Ensambladores3.Valor_pantallas.setText(Integer.toString(Productores.pantallasDisp));
+                        Productores.pantallasDisp3 -= pantalla;
+                        Ensambladores3.Valor_pantallas.setText(Integer.toString(Productores.pantallasDisp3));
                         break;
                     }
                     mutexPantallas.release();
@@ -112,16 +117,18 @@ public class Ensamblador extends Productores{
 
                     mutexBotones.acquire();
                     //Saco la cantidad de botones que necesito
-                    Productores.botonesDisp -= botones;
                     switch (numBusiness) {
                     case 1:
-                        Ensambladores.Valor_botones.setText(Integer.toString(Productores.botonesDisp));
+                        Productores.botonesDisp1 -= botones;
+                        Ensambladores.Valor_botones.setText(Integer.toString(Productores.botonesDisp1));
                         break;
                     case 2:
-                        Ensambladores2.Valor_botones.setText(Integer.toString(Productores.botonesDisp));
+                        Productores.botonesDisp2 -= botones;
+                        Ensambladores2.Valor_botones.setText(Integer.toString(Productores.botonesDisp2));
                         break;
                     case 3:
-                        Ensambladores3.Valor_botones.setText(Integer.toString(Productores.botonesDisp));
+                        Productores.botonesDisp3 -= botones;
+                        Ensambladores3.Valor_botones.setText(Integer.toString(Productores.botonesDisp3));
                         break;
                     }
                     mutexBotones.release();
@@ -130,16 +137,18 @@ public class Ensamblador extends Productores{
 
                     mutexCamaras.acquire();
                     //Saco la cantidad de camaras que necesito
-                    Productores.camarasDisp -= camaras;
                     switch (numBusiness) {
                     case 1:
-                        Ensambladores.Valor_camara.setText(Integer.toString(Productores.camarasDisp));
+                        Productores.camarasDisp1 -= camaras;
+                        Ensambladores.Valor_camara.setText(Integer.toString(Productores.camarasDisp1));
                         break;
                     case 2:
-                        Ensambladores2.Valor_camara.setText(Integer.toString(Productores.camarasDisp));
+                        Productores.camarasDisp2 -= camaras;
+                        Ensambladores2.Valor_camara.setText(Integer.toString(Productores.camarasDisp2));
                         break;
                     case 3:
-                        Ensambladores3.Valor_camara.setText(Integer.toString(Productores.camarasDisp));
+                        Productores.camarasDisp3 -= camaras;
+                        Ensambladores3.Valor_camara.setText(Integer.toString(Productores.camarasDisp3));
                         break;
                     }
                     mutexCamaras.release();
@@ -148,16 +157,18 @@ public class Ensamblador extends Productores{
 
                     mutexPinCarga.acquire();
                     //Saco la cantidad de pins de carga que necesito
-                    Productores.pinCargaDisp -= pin;
                     switch (numBusiness) {
                     case 1:
-                        Ensambladores.Valor_pin.setText(Integer.toString(Productores.pinCargaDisp));
+                        Productores.pinCargaDisp1 -= pin;
+                        Ensambladores.Valor_pin.setText(Integer.toString(Productores.pinCargaDisp1));
                         break;
                     case 2:
-                        Ensambladores2.Valor_pin.setText(Integer.toString(Productores.pinCargaDisp));
+                        Productores.pinCargaDisp2 -= pin;
+                        Ensambladores2.Valor_pin.setText(Integer.toString(Productores.pinCargaDisp2));
                         break;
                     case 3:
-                        Ensambladores3.Valor_pin.setText(Integer.toString(Productores.pinCargaDisp));
+                        Productores.pinCargaDisp3 -= pin;
+                        Ensambladores3.Valor_pin.setText(Integer.toString(Productores.pinCargaDisp3));
                         break;
                     }
                     mutexPinCarga.release();
@@ -166,16 +177,21 @@ public class Ensamblador extends Productores{
 
                     mutexEnsamblador.acquire();
 
-                    Productores.phonesDisp++;
                     switch (numBusiness) {
                     case 1:
-                        Ensambladores.assemblyPhones.setText(Integer.toString(Productores.phonesDisp));
+                        Productores.phonesDisp1++;
+                        Ensambladores.assemblyPhones.setText(Integer.toString(Productores.phonesDisp1));
+                        Empresa1.TlfVendidos.setText(Integer.toString(Productores.phonesDisp1));
                         break;
                     case 2:
-                        Ensambladores2.assemblyPhones.setText(Integer.toString(Productores.phonesDisp));
+                        Productores.phonesDisp2++;
+                        Ensambladores2.assemblyPhones.setText(Integer.toString(Productores.phonesDisp2));
+                        Empresa2.TlfVendidos.setText(Integer.toString(Productores.phonesDisp2));
                         break;
                     case 3:
-                        Ensambladores3.assemblyPhones.setText(Integer.toString(Productores.phonesDisp));
+                        Productores.phonesDisp3++;
+                        Ensambladores3.assemblyPhones.setText(Integer.toString(Productores.phonesDisp3));
+                        Empresa3.TlfVendidos.setText(Integer.toString(Productores.phonesDisp2));
                         break;
                     }
 

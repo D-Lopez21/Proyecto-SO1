@@ -24,7 +24,7 @@ public class Jefe extends Empresa{
 
     public Jefe(int daysToDeliver, int dayDuration, int numBusiness) {
         super(daysToDeliver, dayDuration, numBusiness);
-        this.stop = true;
+        this.stop = false;
     }
     
      public void run(){

@@ -30,12 +30,24 @@ public class Productores extends Empresa{
     private Semaphore semPinCarga;
     private Semaphore semEnsPinCarga;
     //Contadores de piezas en el almacen
-    public static volatile int botonesDisp = 0;
-    public static volatile int camarasDisp = 0;
-    public static volatile int pantallasDisp = 0;
-    public static volatile int pinCargaDisp = 0;
+    public static volatile int botonesDisp1 = 0;
+    public static volatile int camarasDisp1 = 0;
+    public static volatile int pantallasDisp1 = 0;
+    public static volatile int pinCargaDisp1 = 0;
+    //Contadores de piezas en el almacen 2
+    public static volatile int botonesDisp2 = 0;
+    public static volatile int camarasDisp2 = 0;
+    public static volatile int pantallasDisp2 = 0;
+    public static volatile int pinCargaDisp2 = 0;
+    //Contadores de piezas en el almacen 3
+    public static volatile int botonesDisp3 = 0;
+    public static volatile int camarasDisp3 = 0;
+    public static volatile int pantallasDisp3 = 0;
+    public static volatile int pinCargaDisp3 = 0;
     //Contador de smartphones
-    public static volatile int phonesDisp = 0;
+    public static volatile int phonesDisp1 = 0;
+    public static volatile int phonesDisp2 = 0;
+    public static volatile int phonesDisp3 = 0;
     
     private int[] maxStorages;
     private int[] dailyProds;
@@ -110,16 +122,6 @@ public class Productores extends Empresa{
 
     public Semaphore getSemEnsPinCarga() {
         return semEnsPinCarga;
-    }
-    protected void createProdMachines(){
-        ProdBotones pb = new ProdBotones(this.maxStorages, this.dailyProds, super.getDaysToDeliver(), super.getDayDuration(), super.getNumBusiness());
-        pb.run();
-        ProdCamaras pc = new ProdCamaras(this.maxStorages, this.dailyProds, super.getDaysToDeliver(), super.getDayDuration(), super.getNumBusiness());
-        pc.run();
-        ProdPantallas pp = new ProdPantallas(this.maxStorages, this.dailyProds, super.getDaysToDeliver(), super.getDayDuration(), super.getNumBusiness());
-        pp.run();
-        ProdPinCarga ppc = new ProdPinCarga(this.maxStorages, this.dailyProds, super.getDaysToDeliver(), super.getDayDuration(), super.getNumBusiness());
-        ppc.run();
     }
     
 }

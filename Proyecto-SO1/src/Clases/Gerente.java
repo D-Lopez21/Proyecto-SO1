@@ -29,7 +29,7 @@ public class Gerente extends Empresa{
     public Gerente(int daysToDeliver, int dayDuration, int numBusiness) {
         super(daysToDeliver, dayDuration, numBusiness);
         this.reducedSalary = 0;
-        this.stop = true;
+        this.stop = false;
     }
     
     @Override

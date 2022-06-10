@@ -329,11 +329,11 @@ public class Empresa3 extends javax.swing.JFrame {
     private javax.swing.JButton Produ_pantallas;
     private javax.swing.JButton Produ_pin;
     private javax.swing.JButton Salir1;
-    private javax.swing.JLabel TlfVendidos;
-    private javax.swing.JLabel Valor_botones;
-    private javax.swing.JLabel Valor_camara;
-    private javax.swing.JLabel Valor_pantallas;
-    private javax.swing.JLabel Valor_pin;
+    public static volatile javax.swing.JLabel TlfVendidos;
+    public static volatile javax.swing.JLabel Valor_botones;
+    public static volatile javax.swing.JLabel Valor_camara;
+    public static volatile javax.swing.JLabel Valor_pantallas;
+    public static volatile javax.swing.JLabel Valor_pin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
