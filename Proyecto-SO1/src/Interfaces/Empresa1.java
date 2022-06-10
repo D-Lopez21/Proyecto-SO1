@@ -5,30 +5,22 @@
  */
 package Interfaces;
 
-<<<<<<< Updated upstream
-=======
+
 import Clases.Productores;
 import java.util.concurrent.Semaphore;
 
->>>>>>> Stashed changes
 /**
  *
- * @author DIEGO_LOPEZ
+ * @author DIEGO_LOPEZ and Nicolás Briceño
  */
 public class Empresa1 extends javax.swing.JFrame {
-    
-    public static int daysToDeliver;
 
     /**
      * Creates new form Empresa1
      */
-    public Empresa1(int daysToDeliver) {
+    public Empresa1() {
         initComponents();
         this.setLocationRelativeTo(null);
-<<<<<<< Updated upstream
-        this.daysToDeliver = daysToDeliver;
-
-=======
         Valor_botones.setText(String.valueOf(Productores.botonesDisp1));
         Valor_pantallas.setText(String.valueOf(Productores.pantallasDisp1));
         Valor_pin.setText(String.valueOf(Productores.pinCargaDisp1));
@@ -36,7 +28,6 @@ public class Empresa1 extends javax.swing.JFrame {
         ///Dias.setText(String.valueOf(Empresa.dayDuration));
         TlfVendidos.setText(String.valueOf(Productores.phonesDisp1));
         ///Dia_entrega.setText(String.valueOf(Productores.botonesDisp3));
->>>>>>> Stashed changes
     }
 
     /**
@@ -283,14 +274,14 @@ public class Empresa1 extends javax.swing.JFrame {
     }//GEN-LAST:event_EnsambladoresActionPerformed
 
     private void JefeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JefeActionPerformed
-    Gestion_Jefe puente = new Gestion_Jefe(0,null);
+    Gestion_Jefe puente = new Gestion_Jefe();
     
     puente.setVisible(true);
     this.dispose();
     }//GEN-LAST:event_JefeActionPerformed
 
     private void GerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GerenteActionPerformed
-    Gestion_Gerente puente = new Gestion_Gerente(0,0,null);
+    Gestion_Gerente puente = new Gestion_Gerente();
     
     puente.setVisible(true);
     this.dispose();
@@ -326,7 +317,7 @@ public class Empresa1 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Empresa1(0).setVisible(true);
+                new Empresa1().setVisible(true);
             }
         });
     }
@@ -342,11 +333,11 @@ public class Empresa1 extends javax.swing.JFrame {
     private javax.swing.JButton Produ_pantallas;
     private javax.swing.JButton Produ_pin;
     private javax.swing.JButton Salir1;
-    private javax.swing.JLabel TlfVendidos;
-    private javax.swing.JLabel Valor_botones;
-    private javax.swing.JLabel Valor_camara;
-    private javax.swing.JLabel Valor_pantallas;
-    private javax.swing.JLabel Valor_pin;
+    public static volatile javax.swing.JLabel TlfVendidos;
+    public static volatile javax.swing.JLabel Valor_botones;
+    public static volatile javax.swing.JLabel Valor_camara;
+    public static volatile javax.swing.JLabel Valor_pantallas;
+    public static volatile javax.swing.JLabel Valor_pin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

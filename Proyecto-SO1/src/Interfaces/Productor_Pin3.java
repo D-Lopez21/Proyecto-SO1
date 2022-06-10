@@ -35,9 +35,9 @@ public class Productor_Pin3 extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        prodHired = new javax.swing.JLabel();
+        pinDisp = new javax.swing.JLabel();
+        prodCost = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,6 +61,11 @@ public class Productor_Pin3 extends javax.swing.JFrame {
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
 
         jButton1.setText("Contratar productor");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
 
         jButton2.setText("Despedir Productor");
@@ -74,17 +79,17 @@ public class Productor_Pin3 extends javax.swing.JFrame {
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 130, 20));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel5.setText("0");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, -1, -1));
+        prodHired.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        prodHired.setText("0");
+        getContentPane().add(prodHired, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel6.setText("0");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, -1, -1));
+        pinDisp.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        pinDisp.setText("0");
+        getContentPane().add(pinDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel7.setText("0");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, -1, -1));
+        prodCost.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        prodCost.setText("0");
+        getContentPane().add(prodCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, -1, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoDiego2.gif"))); // NOI18N
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(-280, -40, 750, 420));
@@ -98,6 +103,10 @@ public class Productor_Pin3 extends javax.swing.JFrame {
     empresa3.setVisible(true);
     this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,9 +166,9 @@ public class Productor_Pin3 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    public static volatile javax.swing.JLabel pinDisp;
+    public static volatile javax.swing.JLabel prodCost;
+    public static volatile javax.swing.JLabel prodHired;
     // End of variables declaration//GEN-END:variables
 }

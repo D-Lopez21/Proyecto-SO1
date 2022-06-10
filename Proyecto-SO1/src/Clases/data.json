@@ -1,0 +1,16 @@
+{
+    "empresa": [
+        {
+        "dayDuration": 1,
+        "daysToDeliver": 8,
+        "almacenMaxPa": 40,
+        "almacenMaxBo": 45,
+        "almacenMaxPin": 15,
+        "almacenMaxCa": 20,
+        "paDiarios": 1,
+        "boDiarios": 4,
+        "pinDiarios": 2,
+        "caDiarios": 2 
+        }
+    ]
+}

@@ -276,14 +276,14 @@ public class Empresa2 extends javax.swing.JFrame {
     }//GEN-LAST:event_EnsambladoresActionPerformed
 
     private void JefeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JefeActionPerformed
-    Gestion_Jefe2 puente = new Gestion_Jefe2(0,null);
+    Gestion_Jefe2 puente = new Gestion_Jefe2();
     
     puente.setVisible(true);
     this.dispose();
     }//GEN-LAST:event_JefeActionPerformed
 
     private void GerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GerenteActionPerformed
-    Gestion_Gerente2 puente = new Gestion_Gerente2(0,0,null);
+    Gestion_Gerente2 puente = new Gestion_Gerente2();
     
     puente.setVisible(true);
     this.dispose();
@@ -336,11 +336,11 @@ public class Empresa2 extends javax.swing.JFrame {
     private javax.swing.JButton Produ_pantallas;
     private javax.swing.JButton Produ_pin;
     private javax.swing.JButton Salir1;
-    private javax.swing.JLabel TlfVendidos;
-    private javax.swing.JLabel Valor_botones;
-    private javax.swing.JLabel Valor_camara;
-    private javax.swing.JLabel Valor_pantallas;
-    private javax.swing.JLabel Valor_pin;
+    public static volatile javax.swing.JLabel TlfVendidos;
+    public static volatile javax.swing.JLabel Valor_botones;
+    public static volatile javax.swing.JLabel Valor_camara;
+    public static volatile javax.swing.JLabel Valor_pantallas;
+    public static volatile javax.swing.JLabel Valor_pin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

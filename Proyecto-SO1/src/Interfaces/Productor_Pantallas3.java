@@ -36,9 +36,9 @@ public class Productor_Pantallas3 extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        prodHired = new javax.swing.JLabel();
+        panDisp = new javax.swing.JLabel();
+        prodCost = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -75,17 +75,17 @@ public class Productor_Pantallas3 extends javax.swing.JFrame {
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 130, -1));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel5.setText("0");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, -1, -1));
+        prodHired.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        prodHired.setText("0");
+        getContentPane().add(prodHired, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel6.setText("0");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, -1, -1));
+        panDisp.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        panDisp.setText("0");
+        getContentPane().add(panDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel7.setText("0");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, -1, -1));
+        prodCost.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        prodCost.setText("0");
+        getContentPane().add(prodCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, -1, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoDiego2.gif"))); // NOI18N
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(-270, -20, 740, 390));
@@ -146,9 +146,9 @@ public class Productor_Pantallas3 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    public static volatile javax.swing.JLabel panDisp;
+    public static transient volatile javax.swing.JLabel prodCost;
+    private javax.swing.JLabel prodHired;
     // End of variables declaration//GEN-END:variables
 }

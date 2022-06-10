@@ -5,18 +5,44 @@
  */
 package Interfaces;
 
+import Clases.Lectura;
+import Clases.ProdBotones;
+import Clases.ProdCamaras;
+import Clases.ProdPantallas;
+import Clases.ProdPinCarga;
+
 /**
  *
  * @author DIEGO_LOPEZ
  */
 public class InterfazBase extends javax.swing.JFrame {
-
+    
+    private Lectura readData;
+    
+    //Productores de la empresa 1
+    private ProdBotones prodB1;
+    private ProdCamaras prodC1;
+    private ProdPantallas prodP1;
+    private ProdPinCarga prodPC1;
+    //Productores de la empresa 2
+    private ProdBotones prodB2;
+    private ProdPantallas prodP2;
+    private ProdCamaras prodC2;
+    private ProdPinCarga prodPC2;
+    //Productores de la empresa 3
+    private ProdBotones prodB3;
+    private ProdCamaras prodC3;
+    private ProdPantallas prodP3;
+    private ProdPinCarga prodPC3;
+    
     /**
      * Creates new form IntefazBase
      */
     public InterfazBase() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.readData = new Lectura();
+        readData.readJson();
     }
 
     /**
@@ -93,7 +119,15 @@ public class InterfazBase extends javax.swing.JFrame {
     
     empresa2.setVisible(true);
     this.dispose();
-            
+    
+    this.prodB2 = new ProdBotones(readData.getMaxStorages(), readData.getDailyProds2(), readData.getDaysToDeliver(), readData.getDayDuration(), 2);
+    this.prodB2.start();
+    this.prodC2 = new ProdCamaras(readData.getMaxStorages(), readData.getDailyProds2(), readData.getDaysToDeliver(), readData.getDayDuration(), 2);
+    this.prodC2.start();
+    this.prodP2 = new ProdPantallas(readData.getMaxStorages(), readData.getDailyProds2(), readData.getDaysToDeliver(), readData.getDayDuration(), 2);
+    this.prodP2.start();
+    this.prodPC2 = new ProdPinCarga(readData.getMaxStorages(), readData.getDailyProds2(), readData.getDaysToDeliver(), readData.getDayDuration(), 2);
+    this.prodPC2.start();
     }//GEN-LAST:event_Empresa2ActionPerformed
 
     private void Salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Salir1ActionPerformed
@@ -102,11 +136,19 @@ public class InterfazBase extends javax.swing.JFrame {
 
     private void Empresa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Empresa1ActionPerformed
     
-    Empresa1 empresa1 = new Empresa1(0);
+    Empresa1 empresa1 = new Empresa1();
     
     empresa1.setVisible(true);
     this.dispose();
-            
+    
+    this.prodB1 = new ProdBotones(readData.getMaxStorages(), readData.getDailyProds(), readData.getDaysToDeliver(), readData.getDayDuration(), 1);
+    this.prodB1.start();
+    this.prodC1 = new ProdCamaras(readData.getMaxStorages(), readData.getDailyProds(), readData.getDaysToDeliver(), readData.getDayDuration(), 1);
+    this.prodC1.start();
+    this.prodP1 = new ProdPantallas(readData.getMaxStorages(), readData.getDailyProds(), readData.getDaysToDeliver(), readData.getDayDuration(), 1);
+    this.prodP1.start();
+    this.prodPC1 = new ProdPinCarga(readData.getMaxStorages(), readData.getDailyProds(), readData.getDaysToDeliver(), readData.getDayDuration(), 1);
+    this.prodPC1.start();
     }//GEN-LAST:event_Empresa1ActionPerformed
 
     private void Empresa3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Empresa3ActionPerformed
@@ -114,6 +156,15 @@ public class InterfazBase extends javax.swing.JFrame {
     
     empresa3.setVisible(true);
     this.dispose();
+
+    this.prodB3 = new ProdBotones(readData.getMaxStorages(), readData.getDailyProds(), readData.getDaysToDeliver(), readData.getDayDuration(), 3);
+    this.prodB3.start();
+    this.prodC3 = new ProdCamaras(readData.getMaxStorages(), readData.getDailyProds(), readData.getDaysToDeliver(), readData.getDayDuration(), 3);
+    this.prodC3.start();
+    this.prodP3 = new ProdPantallas(readData.getMaxStorages(), readData.getDailyProds(), readData.getDaysToDeliver(), readData.getDayDuration(), 3);
+    this.prodP3.start();
+    this.prodPC3 = new ProdPinCarga(readData.getMaxStorages(), readData.getDailyProds(), readData.getDaysToDeliver(), readData.getDayDuration(), 3);
+    this.prodPC3.start();    
     }//GEN-LAST:event_Empresa3ActionPerformed
 
     /**

@@ -12,65 +12,13 @@ import java.util.concurrent.Semaphore;
  * @author Nicolas B
  */
 public class Gestion_Gerente3 extends javax.swing.JFrame {
-    
-    private int dayDuration;
-    private int daysToDeliver;
-    private int reducedSalary;
-    public static int money;
-    private boolean stop;
-    private Semaphore mutex;
 
     /**
      * Creates new form Gestion_Gerente3
      */
-    public Gestion_Gerente3(int dayDuration, int daysToDeliver, Semaphore mutex) {
+    public Gestion_Gerente3() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.daysToDeliver = daysToDeliver;
-        this.dayDuration = dayDuration;
-        this.reducedSalary = 0;
-        this.money = 0;
-        this.stop = false;
-        this.mutex = mutex;
-    }
-    
-    public void run(){
-        while(!this.stop){
-            
-            try{
-                mutex.acquire();
-                if (Integer.parseInt(Empresa3.Dia_entrega.getText()) == 0){
-                    this.Estado.setText("Trabajando");
-                    Empresa3.Dia_entrega.setText(Integer.toString(daysToDeliver));
-                }else{
-                    this.Estado.setText("Vigilando");
-                    double checkPlay = 0;
-                    double vigilantTime = (dayDuration*(Math.floor(Math.random()*(18-12+1)+18))*1000)/24;
-                    while (vigilantTime >= 0) {
-                        checkPlay = (dayDuration*((long) Math.floor(Math.random()*(90-30+1)+30))*1000)/1440;
-                        Thread.sleep((long) checkPlay);
-                        if (Gestion_Jefe3.state.equals("Jugando Clash Royale")) {
-                            Gestion_Jefe3.money -= 2;
-                            this.reducedSalary += 2;
-                            Gestion_Jefe3.lostMoney.setText(Integer.toString(this.reducedSalary));
-                        }
-                        vigilantTime -= checkPlay;
-                    }
-                
-            }
-                mutex.release();
-            }catch(Exception e){
-                
-            }
-        }
-    }
-
-    public boolean isStop() {
-        return stop;
-    }
-
-    public void setStop(boolean stop) {
-        this.stop = stop;
     }
 
     /**
@@ -179,13 +127,13 @@ public class Gestion_Gerente3 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Gestion_Gerente3(0,0,null).setVisible(true);
+                new Gestion_Gerente3().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Estado;
+    public static volatile javax.swing.JLabel Estado;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
