@@ -57,7 +57,7 @@ public class ProdPinCarga extends Productores{
 
                 switch (numBusiness) {
                     case 1:
-                        if (Productores.pinCargaDisp1 > this.maxPinCarga) {
+                        if (Productores.pinCargaDisp1 >= this.maxPinCarga) {
                             this.setStop(true);
                         } else {
                             Productores.pinCargaDisp1++;
@@ -66,7 +66,7 @@ public class ProdPinCarga extends Productores{
                         Empresa1.Valor_pin.setText(Integer.toString(Productores.pinCargaDisp1));
                         break;
                     case 2:
-                        if (Productores.pinCargaDisp2 > this.maxPinCarga) {
+                        if (Productores.pinCargaDisp2 >= this.maxPinCarga) {
                             this.setStop(true);
                         } else {
                             Productores.pinCargaDisp2++;
@@ -75,7 +75,7 @@ public class ProdPinCarga extends Productores{
                         Empresa2.Valor_pin.setText(Integer.toString(Productores.pinCargaDisp2));
                         break;
                     case 3:
-                        if (Productores.camarasDisp3 > this.maxPinCarga) {
+                        if (Productores.camarasDisp3 >= this.maxPinCarga) {
                             this.setStop(true);
                         } else {
                             Productores.camarasDisp3++;

@@ -43,14 +43,13 @@ public class Ensamblador extends Productores{
     private Semaphore semPinCarga;
     private Semaphore semEnsPinCarga;
 
-    public Ensamblador(Semaphore mutexEnsamblador, int[] maxStorages, int[] dailyProds, int daysToDeliver, int dayDuration, int numBusiness) {
+    public Ensamblador(int[] maxStorages, int[] dailyProds, int daysToDeliver, int dayDuration, int numBusiness) {
         super(maxStorages, dailyProds, daysToDeliver, dayDuration, numBusiness);
         this.stop = false;
         this.mutexEnsamblador = new Semaphore(1);
     }
 
     public void run(){
-        
         mutexBotones = getMutexBotones();
         semBotones = getSemBotones();
         semEnsBotones = getSemEnsBotones();

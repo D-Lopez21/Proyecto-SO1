@@ -45,41 +45,40 @@ public class ProdBotones extends Productores{
         while (!stop) {
             try {
                 semBotones.acquire();
-
                 Thread.sleep(Math.round((dayDuration * 1000) / dailyProduce));
                 mutex.acquire();
-                
                 switch (numBusiness) {
                     case 1:
-                        if (Productores.botonesDisp1 > this.maxBotones) {
+                        if (Productores.botonesDisp1 >= this.maxBotones) {
                             this.setStop(true);
                         } else {
                             Productores.botonesDisp1++;
+                            Productor_Botones.botonDisp.setText(Integer.toString(Productores.botonesDisp1));
+                            Empresa1.Valor_botones.setText(Integer.toString(Productores.botonesDisp1));
                         }
-                        Productor_Botones.botonDisp.setText(Integer.toString(Productores.botonesDisp1));
-                        Empresa1.Valor_botones.setText(Integer.toString(Productores.botonesDisp1));
-
+                        
                         break;
                     case 2:
-                        if (Productores.botonesDisp2 > this.maxBotones) {
+                        if (Productores.botonesDisp2 >= this.maxBotones) {
                             this.setStop(true);
                         } else {
                             Productores.botonesDisp2++;
+                            Productor_Botones2.botonDisp.setText(Integer.toString(Productores.botonesDisp2));
+                            Empresa2.Valor_botones.setText(Integer.toString(Productores.botonesDisp2));
                         }
-                        Productor_Botones2.botonDisp.setText(Integer.toString(Productores.botonesDisp2));
-                        Empresa2.Valor_botones.setText(Integer.toString(Productores.botonesDisp2));
+                        
                         break;
                     case 3:
-                        if (Productores.botonesDisp3 > this.maxBotones) {
+                        if (Productores.botonesDisp3 >= this.maxBotones) {
                             this.setStop(true);
                         } else {
                             Productores.botonesDisp3++;
+                            Productor_Botones3.botonDisp.setText(Integer.toString(Productores.botonesDisp3));
+                            Empresa3.Valor_botones.setText(Integer.toString(Productores.botonesDisp3));
                         }
-                        Productor_Botones3.botonDisp.setText(Integer.toString(Productores.botonesDisp3));
-                        Empresa3.Valor_botones.setText(Integer.toString(Productores.botonesDisp3));
+                        
                         break;
                 }
-
                 mutex.release();
                 semEnsamblador.release();
 

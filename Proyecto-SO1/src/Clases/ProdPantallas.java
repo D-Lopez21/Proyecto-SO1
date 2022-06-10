@@ -51,7 +51,7 @@ public class ProdPantallas extends Productores{
                 mutex.acquire();
                 switch (numBusiness) {
                     case 1:
-                        if (Productores.pantallasDisp1 > this.maxPantallas) {
+                        if (Productores.pantallasDisp1 >= this.maxPantallas) {
                             this.setStop(true);
                         } else {
                             Productores.pantallasDisp1++;
@@ -60,7 +60,7 @@ public class ProdPantallas extends Productores{
                         Empresa1.Valor_pantallas.setText(Integer.toString(Productores.pantallasDisp1));
                         break;
                     case 2:
-                        if (Productores.pantallasDisp2 > this.maxPantallas) {
+                        if (Productores.pantallasDisp2 >= this.maxPantallas) {
                             this.setStop(true);
                         } else {
                             Productores.pantallasDisp2++;
@@ -69,7 +69,7 @@ public class ProdPantallas extends Productores{
                         Empresa2.Valor_pantallas.setText(Integer.toString(Productores.pantallasDisp2));
                         break;
                     case 3:
-                        if (Productores.pantallasDisp3 > this.maxPantallas) {
+                        if (Productores.pantallasDisp3 >= this.maxPantallas) {
                             this.setStop(true);
                         } else {
                             Productores.pantallasDisp3++;

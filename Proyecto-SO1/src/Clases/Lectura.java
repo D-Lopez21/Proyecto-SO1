@@ -56,10 +56,13 @@ public class Lectura {
             dayProds[3] = empresaObj.get("caDiarios").getAsInt();
             this.setDailyProds(dayProds);
             
-            dayProds[0] += 1;
-            dayProds[1] -= 2;
-            dayProds[2] += 1;
-            this.setDailyProds2(dayProds);
+            int[] dayProds2 = {0,0,0,0};
+            dayProds2[0] = dayProds[0] + 1;
+            dayProds2[1] = dayProds[1] - 2;
+            dayProds2[2] = dayProds[2] + 1;
+            dayProds2[3] = dayProds[3];
+            this.setDailyProds2(dayProds2);
+
             
         } catch (FileNotFoundException ex) {
            JOptionPane.showMessageDialog(null, "No se encontró el archivo de texto (json)","ALERTA", JOptionPane.WARNING_MESSAGE);

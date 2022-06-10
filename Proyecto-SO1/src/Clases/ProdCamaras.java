@@ -51,7 +51,7 @@ public class ProdCamaras extends Productores{
 
                 switch (numBusiness) {
                     case 1:
-                        if (Productores.camarasDisp1 > this.maxCamaras) {
+                        if (Productores.camarasDisp1 >= this.maxCamaras) {
                             this.setStop(true);
                         } else {
                             Productores.camarasDisp1++;
@@ -60,7 +60,7 @@ public class ProdCamaras extends Productores{
                         Empresa1.Valor_camara.setText(Integer.toString(Productores.camarasDisp1));
                         break;
                     case 2:
-                        if (Productores.camarasDisp2 > this.maxCamaras) {
+                        if (Productores.camarasDisp2 >= this.maxCamaras) {
                             this.setStop(true);
                         } else {
                             Productores.camarasDisp2++;
@@ -69,7 +69,7 @@ public class ProdCamaras extends Productores{
                         Empresa2.Valor_camara.setText(Integer.toString(Productores.camarasDisp2));
                         break;
                     case 3:
-                        if (Productores.camarasDisp3 > this.maxCamaras) {
+                        if (Productores.camarasDisp3 >= this.maxCamaras) {
                             this.setStop(true);
                         } else {
                             Productores.camarasDisp3++;

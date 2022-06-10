@@ -5,6 +5,9 @@
  */
 package Interfaces;
 
+import Clases.Ensamblador;
+import Clases.Gerente;
+import Clases.Jefe;
 import Clases.Lectura;
 import Clases.ProdBotones;
 import Clases.ProdCamaras;
@@ -20,20 +23,37 @@ public class InterfazBase extends javax.swing.JFrame {
     private Lectura readData;
     
     //Productores de la empresa 1
-    private ProdBotones prodB1;
-    private ProdCamaras prodC1;
-    private ProdPantallas prodP1;
-    private ProdPinCarga prodPC1;
+    private ProdBotones prodB1[];
+    private ProdCamaras prodC1[];
+    private ProdPantallas prodP1[];
+    private ProdPinCarga prodPC1[];
+    //Ensamblador empresa 1
+    private Ensamblador ensE1[];
+    //Jefe y Gerente empresa 1
+    private Jefe jE1;
+    private Gerente gE1;
+    
     //Productores de la empresa 2
-    private ProdBotones prodB2;
-    private ProdPantallas prodP2;
-    private ProdCamaras prodC2;
-    private ProdPinCarga prodPC2;
+    private ProdBotones prodB2[];
+    private ProdPantallas prodP2[];
+    private ProdCamaras prodC2[];
+    private ProdPinCarga prodPC2[];
+    //Ensamblador empresa 2
+    private Ensamblador ensE2[];
+    //Jefe y Gerente empresa 1
+    private Jefe jE2;
+    private Gerente gE2;
+    
     //Productores de la empresa 3
-    private ProdBotones prodB3;
-    private ProdCamaras prodC3;
-    private ProdPantallas prodP3;
-    private ProdPinCarga prodPC3;
+    private ProdBotones prodB3[];
+    private ProdCamaras prodC3[];
+    private ProdPantallas prodP3[];
+    private ProdPinCarga prodPC3[];
+    //Ensamblador empresa 3
+    private Ensamblador ensE3[];
+    //Jefe y Gerente empresa 1
+    private Jefe jE3;
+    private Gerente gE3;
     
     /**
      * Creates new form IntefazBase
@@ -43,6 +63,45 @@ public class InterfazBase extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.readData = new Lectura();
         readData.readJson();
+        
+        //Creacion de productores empresa 1
+        this.prodB1[0] = new ProdBotones(readData.getMaxStorages(), readData.getDailyProds(), readData.getDaysToDeliver(), readData.getDayDuration(), 1);
+        this.prodC1[0] = new ProdCamaras(readData.getMaxStorages(), readData.getDailyProds(), readData.getDaysToDeliver(), readData.getDayDuration(), 1);
+        this.prodP1[0] = new ProdPantallas(readData.getMaxStorages(), readData.getDailyProds(), readData.getDaysToDeliver(), readData.getDayDuration(), 1);
+        this.prodPC1[0] = new ProdPinCarga(readData.getMaxStorages(), readData.getDailyProds(), readData.getDaysToDeliver(), readData.getDayDuration(), 1);
+
+        //Creacion de ensamblador empresa 1
+        this.ensE1[0] = new Ensamblador(readData.getMaxStorages(), readData.getDailyProds(), readData.getDaysToDeliver(), readData.getDayDuration(), 1);
+
+        //Creacion de jefe y gerente empresa 1
+        this.jE1 = new Jefe(readData.getDaysToDeliver(), readData.getDayDuration(), 1);
+        this.gE1 = new Gerente(readData.getDaysToDeliver(), readData.getDayDuration(), 1);
+        
+        //Creacion de productores empresa 2
+        this.prodB2[0] = new ProdBotones(readData.getMaxStorages(), readData.getDailyProds2(), readData.getDaysToDeliver(), readData.getDayDuration(), 2);
+        this.prodC2[0] = new ProdCamaras(readData.getMaxStorages(), readData.getDailyProds2(), readData.getDaysToDeliver(), readData.getDayDuration(), 2);
+        this.prodP2[0] = new ProdPantallas(readData.getMaxStorages(), readData.getDailyProds2(), readData.getDaysToDeliver(), readData.getDayDuration(), 2);
+        this.prodPC2[0] = new ProdPinCarga(readData.getMaxStorages(), readData.getDailyProds2(), readData.getDaysToDeliver(), readData.getDayDuration(), 2);
+        
+        //Creacion de ensamblador empresa 2
+        this.ensE2[0] = new Ensamblador(readData.getMaxStorages(), readData.getDailyProds2(), readData.getDaysToDeliver(), readData.getDayDuration(), 2);
+
+        //Creacion de jefe y gerente empresa 2
+        this.jE2 = new Jefe(readData.getDaysToDeliver(), readData.getDayDuration(), 2);
+        this.gE2 = new Gerente(readData.getDaysToDeliver(), readData.getDayDuration(), 2);
+        
+        //Creacion de productores empresa 3
+        this.prodB3[0] = new ProdBotones(readData.getMaxStorages(), readData.getDailyProds(), readData.getDaysToDeliver(), readData.getDayDuration(), 3);
+        this.prodC3[0] = new ProdCamaras(readData.getMaxStorages(), readData.getDailyProds(), readData.getDaysToDeliver(), readData.getDayDuration(), 3);
+        this.prodP3[0] = new ProdPantallas(readData.getMaxStorages(), readData.getDailyProds(), readData.getDaysToDeliver(), readData.getDayDuration(), 3);
+        this.prodPC3[0] = new ProdPinCarga(readData.getMaxStorages(), readData.getDailyProds(), readData.getDaysToDeliver(), readData.getDayDuration(), 3);
+        
+        //Creacion de ensamblador empresa 3
+        this.ensE3[0] = new Ensamblador(readData.getMaxStorages(), readData.getDailyProds(), readData.getDaysToDeliver(), readData.getDayDuration(), 2);
+
+        //Creacion de jefe y gerente empresa 3
+        this.jE3 = new Jefe(readData.getDaysToDeliver(), readData.getDayDuration(), 3);
+        this.gE3 = new Gerente(readData.getDaysToDeliver(), readData.getDayDuration(), 3);
     }
 
     /**
@@ -120,14 +179,6 @@ public class InterfazBase extends javax.swing.JFrame {
     empresa2.setVisible(true);
     this.dispose();
     
-    this.prodB2 = new ProdBotones(readData.getMaxStorages(), readData.getDailyProds2(), readData.getDaysToDeliver(), readData.getDayDuration(), 2);
-    this.prodB2.start();
-    this.prodC2 = new ProdCamaras(readData.getMaxStorages(), readData.getDailyProds2(), readData.getDaysToDeliver(), readData.getDayDuration(), 2);
-    this.prodC2.start();
-    this.prodP2 = new ProdPantallas(readData.getMaxStorages(), readData.getDailyProds2(), readData.getDaysToDeliver(), readData.getDayDuration(), 2);
-    this.prodP2.start();
-    this.prodPC2 = new ProdPinCarga(readData.getMaxStorages(), readData.getDailyProds2(), readData.getDaysToDeliver(), readData.getDayDuration(), 2);
-    this.prodPC2.start();
     }//GEN-LAST:event_Empresa2ActionPerformed
 
     private void Salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Salir1ActionPerformed
@@ -140,15 +191,7 @@ public class InterfazBase extends javax.swing.JFrame {
     
     empresa1.setVisible(true);
     this.dispose();
-    
-    this.prodB1 = new ProdBotones(readData.getMaxStorages(), readData.getDailyProds(), readData.getDaysToDeliver(), readData.getDayDuration(), 1);
-    this.prodB1.start();
-    this.prodC1 = new ProdCamaras(readData.getMaxStorages(), readData.getDailyProds(), readData.getDaysToDeliver(), readData.getDayDuration(), 1);
-    this.prodC1.start();
-    this.prodP1 = new ProdPantallas(readData.getMaxStorages(), readData.getDailyProds(), readData.getDaysToDeliver(), readData.getDayDuration(), 1);
-    this.prodP1.start();
-    this.prodPC1 = new ProdPinCarga(readData.getMaxStorages(), readData.getDailyProds(), readData.getDaysToDeliver(), readData.getDayDuration(), 1);
-    this.prodPC1.start();
+
     }//GEN-LAST:event_Empresa1ActionPerformed
 
     private void Empresa3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Empresa3ActionPerformed
@@ -157,14 +200,6 @@ public class InterfazBase extends javax.swing.JFrame {
     empresa3.setVisible(true);
     this.dispose();
 
-    this.prodB3 = new ProdBotones(readData.getMaxStorages(), readData.getDailyProds(), readData.getDaysToDeliver(), readData.getDayDuration(), 3);
-    this.prodB3.start();
-    this.prodC3 = new ProdCamaras(readData.getMaxStorages(), readData.getDailyProds(), readData.getDaysToDeliver(), readData.getDayDuration(), 3);
-    this.prodC3.start();
-    this.prodP3 = new ProdPantallas(readData.getMaxStorages(), readData.getDailyProds(), readData.getDaysToDeliver(), readData.getDayDuration(), 3);
-    this.prodP3.start();
-    this.prodPC3 = new ProdPinCarga(readData.getMaxStorages(), readData.getDailyProds(), readData.getDaysToDeliver(), readData.getDayDuration(), 3);
-    this.prodPC3.start();    
     }//GEN-LAST:event_Empresa3ActionPerformed
 
     /**

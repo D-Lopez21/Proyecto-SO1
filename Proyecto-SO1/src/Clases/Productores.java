@@ -54,7 +54,6 @@ public class Productores extends Empresa{
 
     public Productores(int[] maxStorages, int[] dailyProds, int daysToDeliver, int dayDuration, int numBusiness) {
         super(daysToDeliver, dayDuration, numBusiness);
-        
         //Botones
         this.mutexBotones = new Semaphore(1);
         this.semBotones = new Semaphore(maxStorages[0]);
